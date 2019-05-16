@@ -17,6 +17,9 @@ import com.xw.project.gracefulmovies.ui.activity.base.BaseActivity;
 import com.xw.project.gracefulmovies.ui.adapter.BoxOfficeAdapter;
 import com.xw.project.gracefulmovies.viewmodel.BoxOfficeViewModel;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+
 /**
  * 票房
  * <p>
@@ -34,6 +37,7 @@ public class BoxOfficeActivity extends BaseActivity<ActivityBoxOfficeBinding> im
 
     @Override
     protected void afterSetContentView() {
+
         initializeToolbar();
 
         mBinding.fab.setOnClickListener(view -> {
@@ -45,8 +49,11 @@ public class BoxOfficeActivity extends BaseActivity<ActivityBoxOfficeBinding> im
                 ContextCompat.getColor(this, R.color.colorAccent),
                 ContextCompat.getColor(this, R.color.colorPrimary)
         );
+
+
         mBinding.swipeRefreshLayout.setProgressViewEndTarget(false, (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP, 80, Resources.getSystem().getDisplayMetrics()));
+                TypedValue.COMPLEX_UNIT_DIP, 120, Resources.getSystem().getDisplayMetrics()));
+
         mBinding.swipeRefreshLayout.setOnRefreshListener(this);
 
         mAdapter = new BoxOfficeAdapter();

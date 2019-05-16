@@ -90,8 +90,8 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
         }
     }
 
-    protected void onLazyLoad() {
-    }
+
+    protected void onLazyLoad() {}
 
     @LayoutRes
     protected abstract int viewLayoutRes();

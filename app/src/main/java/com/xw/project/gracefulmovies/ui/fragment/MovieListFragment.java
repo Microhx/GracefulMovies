@@ -75,6 +75,8 @@ public class MovieListFragment extends BaseFragment<FragmentMovieListBinding> im
 
             if (resource.getStatus() == DataResource.Status.LOADING) {
                 mBinding.infiniteViewPager.setVisibility(View.INVISIBLE);
+
+
             } else if (resource.getStatus() == DataResource.Status.SUCCESS) {
                 MovieDao dao = GMApplication.getInstance().getDatabase().movieDao();
                 Observer<List<MovieEntity>> observer = movies -> {
@@ -95,6 +97,8 @@ public class MovieListFragment extends BaseFragment<FragmentMovieListBinding> im
                     mBinding.bgIv2.animate().alpha(0).setDuration(1000)
                             .withEndAction(() -> displayBgImage(1, mBinding.bgIv2));
                 };
+
+
                 if (isNow) {
                     dao.loadMovieNowList().observe(getViewLifecycleOwner(), observer);
                 } else {
@@ -102,6 +106,7 @@ public class MovieListFragment extends BaseFragment<FragmentMovieListBinding> im
                 }
             }
         });
+
         GMApplication.getInstance().getCityRepository().getCity()
                 .observe(getViewLifecycleOwner(), mMovieViewModel::setCity);
     }

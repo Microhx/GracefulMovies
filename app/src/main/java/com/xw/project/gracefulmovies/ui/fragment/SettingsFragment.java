@@ -87,10 +87,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
     private long getFolderSize(File file) {
         if (!file.exists()) {
-            return 0;
+            return 0L;
         }
 
-        long size = 0;
+
+        long size = 0L;
         try {
             File[] fileList = file.listFiles();
             for (File aFileList : fileList) {

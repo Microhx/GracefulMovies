@@ -112,6 +112,8 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$arch"
     implementation "android.arch.lifecycle:common-java8:$arch"
     annotationProcessor "android.arch.lifecycle:compiler:$arch"
+
+
     implementation "android.arch.persistence.room:runtime:$arch"
     annotationProcessor "android.arch.persistence.room:compiler:$arch"
     implementation "android.arch.persistence.room:rxjava2:$arch"

@@ -29,10 +29,11 @@ public class ApiClient {
 
         mOkHttpClientBuilder = new OkHttpClient.Builder();
         mOkHttpClientBuilder.connectTimeout(15, TimeUnit.SECONDS);
+
         if (BuildConfig.DEBUG) {
             mOkHttpClientBuilder.addNetworkInterceptor(
                     new LoggingInterceptor.Builder()
-                            .loggable(BuildConfig.DEBUG)
+                            .loggable(true)
                             .setLevel(Level.BODY)
                             .log(Platform.INFO)
                             .request("Request")
