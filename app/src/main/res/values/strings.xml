@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">简影讯</string>
+
+    <string name="app_name">Movie02</string>
     <string name="app_slogan">简约精彩影讯</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -9,8 +10,8 @@
     <string name="navigation_share">分享</string>
     <string name="navigation_evaluate">评价</string>
     <string name="navigation_about">关于</string>
-    <string name="has_released">上映</string>
-    <string name="going_to_release">待映</string>
+    <string name="has_released">热门</string>
+    <string name="going_to_release">推荐</string>
     <string name="title_activity_about">关于</string>
     <string name="reload_data">重新加载</string>
     <string name="starring">演职人员</string>
@@ -45,5 +46,8 @@
     <string name="key_cache">key_cache</string>
     <string name="key_update">key_update</string>
     <string name="key_feedback">key_feedback</string>
+    <string name="str_movie_info_title">电影资料</string>
+    <string name="str_look_all_info">查看所有资料  ＞</string>
+    <string name="str_movie_data">电影资料</string>
 
 </resources>

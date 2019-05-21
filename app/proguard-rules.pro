@@ -81,3 +81,10 @@
 # Model
 -keep class com.xw.project.gracefulmovies.data.ao.** { *; }
 -keep class com.xw.project.gracefulmovies.data.db.entity.** { *; }
+
+# 播放器
+#-keep class tv.danmaku.ijk.** { *; }
+#-dontwarn tv.danmaku.ijk.**
+#-keep class com.shuyu.gsyvideoplayer.** { *; }
+#-dontwarn com.shuyu.gsyvideoplayer.**
+

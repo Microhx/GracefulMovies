@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -58,6 +59,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:src="@drawable/pic_place_holder"/>
+
+                <ImageView
+                    android:id="@+id/id_image_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/cover_iv"
+                    app:layout_constraintEnd_toEndOf="@id/cover_iv"
+                    app:layout_constraintTop_toTopOf="@id/cover_iv"
+                    android:onClick="onClick"
+                    app:layout_constraintBottom_toBottomOf="@id/cover_iv"
+                    app:srcCompat="@drawable/ic_play"
+                    android:tint="@color/color_white"/>
 
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/name_tv"
@@ -185,6 +198,85 @@
                     tools:text="xxx, xxx"/>
 
                 <TextView
+                    android:id="@+id/text_movie_info_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_movie_info_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/story_brief_tv"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_16"/>
+
+                <TextView
+                    android:id="@+id/text_movie_look_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_look_all_info"
+                    android:onClick="onClick"
+                    android:textColor="@color/colorAccent"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/text_movie_info_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_margin="@dimen/dp_16"/>
+
+                <LinearLayout
+                    android:id="@+id/linear_movie_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_movie_info_title"
+                    android:paddingEnd="@dimen/dp_16"
+                    android:paddingTop="@dimen/dp_16"
+                    android:paddingStart="@dimen/dp_16">
+
+                    <TextView
+                        android:id="@+id/text_movie_foreign_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="译名: 比悲伤更悲伤的故事/More Than Blue"/>
+
+                    <TextView
+                        android:id="@+id/text_movie_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="片名: 比悲傷更悲傷的故事"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="年代: 2018"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="产地: 台湾"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="类别: 爱情"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="语言: 韩语普通话"
+                        android:layout_marginTop="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="字幕: 中文字幕"
+                        android:layout_marginTop="4dp"/>
+
+                </LinearLayout>
+
+                <TextView
                     android:id="@+id/text2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -194,7 +286,7 @@
                     android:text="@string/starring"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/story_brief_tv"/>
+                    app:layout_constraintTop_toBottomOf="@+id/linear_movie_detail"/>
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/actors_recycler_view"

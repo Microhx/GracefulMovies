@@ -12,5 +12,5 @@
         android:background="?selectableItemBackground"
         android:padding="@dimen/dp_8"
         android:textColor="@android:color/white"
-        app:drawableLeftCompat="@drawable/svg_ic_box_office"/>
+        app:drawableLeftCompat="@drawable/ic_search_movie"/>
 </FrameLayout>

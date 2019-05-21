@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 
+import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.xw.project.gracefulmovies.GMApplication;
 import com.xw.project.gracefulmovies.R;
@@ -20,6 +21,7 @@ import com.xw.project.gracefulmovies.data.db.entity.CityEntity;
 import com.xw.project.gracefulmovies.databinding.ActivityMovieDetailBinding;
 import com.xw.project.gracefulmovies.ui.BindingAdapters;
 import com.xw.project.gracefulmovies.ui.activity.base.BaseActivity;
+import com.xw.project.gracefulmovies.ui.activity.play.PlayerDelegateActivity;
 import com.xw.project.gracefulmovies.ui.adapter.ActorsAdapter;
 import com.xw.project.gracefulmovies.ui.adapter.StillsAdapter;
 import com.xw.project.gracefulmovies.ui.fragment.PreviewImageFragment;
@@ -157,13 +159,26 @@ public class MovieDetailActivity extends BaseActivity<ActivityMovieDetailBinding
         if (v.getId() == R.id.go_back_iv) {
             onBackPressed();
         } else if (v.getId() == R.id.cover_iv) {
+            //TODO goto the play the movie
+            Toast.makeText(this,"watch the movie", Toast.LENGTH_SHORT).show();
+
             ArrayList<String> urls = new ArrayList<>();
             urls.add(mImageUrl);
             gotoPreviewImages(urls, 0);
+
         } else if (v.getId() == R.id.box_office_ranking_tv) {
             navigate(BoxOfficeActivity.class);
+
+        } else if(v.getId() == R.id.text_movie_look_more) {
+            navigate(MovieDataDetailActivity.class);
+
+        } else if(v.getId() == R.id.id_image_play) {
+            PlayerDelegateActivity.start(this,"a movie url");
+
+
         }
     }
+
 
     public void gotoPreviewImages(ArrayList<String> urls, int pos) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

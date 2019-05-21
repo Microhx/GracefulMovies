@@ -11,7 +11,7 @@ import android.util.Log;
 public final class Logy {
 
     private static final String TAG = "GracefulMovies";
-    private static boolean DEBUG;
+    private static boolean DEBUG ;
 
     public static void init(boolean debug) {
         DEBUG = debug;

@@ -142,4 +142,12 @@ dependencies {
         exclude group: 'com.android.support'
     }
     implementation 'com.github.chrisbanes:PhotoView:2.1.4'
+
+
+    //根据你的需求ijk模式的so
+    implementation ('com.shuyu:GSYVideoPlayer:6.0.3') {
+        exclude group: 'com.android.support'
+    }
+
+
 }

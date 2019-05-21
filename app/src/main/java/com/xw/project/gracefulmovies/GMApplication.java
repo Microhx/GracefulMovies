@@ -21,9 +21,10 @@ public class GMApplication extends Application {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
     public static GMApplication sApplication;
 
+    
     private GMDatabase mDatabase;
     private CityRepository mCityRepository;
 
