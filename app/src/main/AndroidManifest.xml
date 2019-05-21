@@ -65,10 +65,10 @@
                   android:configChanges="orientation|keyboardHidden|screenSize"
                   android:screenOrientation="landscape"/>
 
-        <activity android:name=".ui.search.MovieSearchActivity"
+        <activity android:name=".ui.search.MovieTypeSearchActivity"
                   android:label="@string/str_search_movie"
                   android:screenOrientation="portrait"/>
-
+        <activity android:name=".ui.search.MovieSearchActivity"/>
 
         <service
             android:name=".service.LocationService"

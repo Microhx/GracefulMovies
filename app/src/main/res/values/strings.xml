@@ -50,5 +50,7 @@
     <string name="str_look_all_info">查看所有资料  ＞</string>
     <string name="str_movie_data">电影资料</string>
     <string name="str_search_movie">搜片</string>
+    <string name="str_cancel">取消</string>
+    <string name="search_movie">搜索你最想看的电影吧..</string>
 
 </resources>

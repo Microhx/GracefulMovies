@@ -5,7 +5,6 @@ import androidx.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Build;
 import androidx.annotation.NonNull;
-import androidx.databinding.ViewDataBinding;
 import com.google.android.material.navigation.NavigationView;
 import androidx.fragment.app.Fragment;
 import androidx.core.view.GravityCompat;
@@ -28,7 +27,7 @@ import com.xw.project.gracefulmovies.ui.activity.base.BaseActivity;
 import com.xw.project.gracefulmovies.ui.adapter.TabPagerAdapter;
 import com.xw.project.gracefulmovies.ui.fragment.BaseFragment;
 import com.xw.project.gracefulmovies.ui.fragment.MovieListFragment;
-import com.xw.project.gracefulmovies.ui.search.MovieSearchActivity;
+import com.xw.project.gracefulmovies.ui.search.MovieTypeSearchActivity;
 import com.xw.project.gracefulmovies.util.Util;
 
 /**
@@ -117,7 +116,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements N
             navigateWithRippleCompat(
                     this,
                     //new Intent(this, BoxOfficeActivity.class),
-                    new Intent(this, MovieSearchActivity.class),
+                    new Intent(this, MovieTypeSearchActivity.class),
 
                     item.getActionView(),
                     R.color.colorPrimary

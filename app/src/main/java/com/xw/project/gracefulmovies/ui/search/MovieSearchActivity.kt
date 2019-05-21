@@ -1,17 +1,14 @@
 package com.xw.project.gracefulmovies.ui.search
 
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
+import android.text.Editable
+import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.xw.project.gracefulmovies.R
-import com.xw.project.gracefulmovies._data.DataUtils
-import com.xw.project.gracefulmovies.data.ao.SearchData
+import com.xw.project.gracefulmovies.data.ao.SearchMovieData
 import com.xw.project.gracefulmovies.ui.activity.adaper.BaseCommonAdapter
 import com.xw.project.gracefulmovies.ui.activity.base.BaseRefreshActivity
-import com.xw.project.gracefulmovies.ui.search.adapter.SearchTitleAdapter
+import com.xw.project.gracefulmovies.ui.search.adapter.MovieDataSearchAdapter
+import com.xw.project.gracefulmovies.view.CustomSearchView
 
 /**
  * author: Java
@@ -22,44 +19,40 @@ import com.xw.project.gracefulmovies.ui.search.adapter.SearchTitleAdapter
  *
  * version : 1.0.1
  *
- * desc :
+ * desc : 电影文字搜索
  *
  *
  */
-class MovieSearchActivity : BaseRefreshActivity<SearchData>() {
+class MovieSearchActivity : BaseRefreshActivity<SearchMovieData>(), CustomSearchView.SearchViewInterface {
 
+  override fun initializeToolbar() {
+    val toolbar = findViewById<Toolbar>(R.id.toolbar)
+    val customSearchView = CustomSearchView(applicationContext)
+    customSearchView.searchViewInterface = this
 
-  override fun subClassInitAdapter(): BaseCommonAdapter<SearchData> {
-    val movieSearchAdapter = MovieSearchAdapter()
+    toolbar.addView(customSearchView, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
 
-    movieSearchAdapter.addHeaderView(createHeadView())
-
-    return movieSearchAdapter
+//    setSupportActionBar(toolbar)
+//    if (supportActionBar != null) {
+//      supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+//    }
   }
 
-  private fun createHeadView(): View {
-    val rootView = LayoutInflater.from(applicationContext).inflate(R.layout.movie_search_title, null, false)
-    val typeRecycler = rootView.findViewById<RecyclerView>(R.id.id_recyler_type)
-    val locationRecycler = rootView.findViewById<RecyclerView>(R.id.id_recyler_location)
-    val timeRecycler = rootView.findViewById<RecyclerView>(R.id.id_recyler_time)
 
-    typeRecycler.apply {
-      adapter = SearchTitleAdapter(DataUtils.getSearchTitle(12))
-      layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
-    }
-
-    locationRecycler.apply {
-      adapter = SearchTitleAdapter(DataUtils.getSearchTitle(28))
-      layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
-    }
-
-    timeRecycler.apply {
-      adapter = SearchTitleAdapter(DataUtils.getSearchTitle(16))
-      layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
-    }
-
-    return rootView
+  override fun subClassInitAdapter(): BaseCommonAdapter<SearchMovieData> {
+    return MovieDataSearchAdapter()
   }
+
+
+  override fun onCancel() {
+    finish()
+  }
+
+  override fun gotoSearch(s: Editable?) {
+    //TODO goto Search
+
+  }
+
 
 
 }

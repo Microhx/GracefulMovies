@@ -1,4 +1,4 @@
-package com.xw.project.gracefulmovies.ui.search
+package com.xw.project.gracefulmovies.ui.search.adapter
 
 import com.chad.library.adapter.base.BaseViewHolder
 import com.xw.project.gracefulmovies.R
@@ -15,11 +15,11 @@ import com.xw.project.gracefulmovies.ui.activity.adaper.BaseCommonAdapter
  *
  * version : 1.0.1
  *
- * desc :
+ * desc : 电影类型搜索 适配器
  *
  *
  */
-class MovieSearchAdapter : BaseCommonAdapter<SearchData>(DataUtils.getSearchData(20),R.layout.item_search_movie) {
+class MovieTypeSearchAdapter : BaseCommonAdapter<SearchData>(DataUtils.getSearchData(20),R.layout.item_search_movie) {
 
   override fun convert(helper: BaseViewHolder?, item: SearchData?) {
 

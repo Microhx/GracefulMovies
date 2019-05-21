@@ -1,6 +1,7 @@
 package com.xw.project.gracefulmovies._data
 
 import com.xw.project.gracefulmovies.data.ao.SearchData
+import com.xw.project.gracefulmovies.data.ao.SearchMovieData
 import com.xw.project.gracefulmovies.data.ao.SearchTitleData
 
 /**
@@ -41,6 +42,18 @@ object DataUtils {
     }
     
     return list
+  }
+
+  fun getSearchMovieData(count : Int) : List<SearchMovieData> {
+    val list = ArrayList<SearchMovieData>()
+
+    for(i in 0..count) {
+      list.add(SearchMovieData())
+    }
+
+    return list
+
+
   }
 
 }
