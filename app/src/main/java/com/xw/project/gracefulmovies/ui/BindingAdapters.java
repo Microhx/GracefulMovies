@@ -1,6 +1,6 @@
 package com.xw.project.gracefulmovies.ui;
 
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;

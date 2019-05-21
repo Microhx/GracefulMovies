@@ -1,6 +1,6 @@
 package com.xw.project.gracefulmovies.data;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import static com.xw.project.gracefulmovies.data.DataResource.Status.EMPTY;
 import static com.xw.project.gracefulmovies.data.DataResource.Status.ERROR;

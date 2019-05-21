@@ -1,7 +1,7 @@
 package com.xw.project.gracefulmovies.repository;
 
-import android.arch.lifecycle.LiveData;
-import android.support.annotation.Nullable;
+import androidx.lifecycle.LiveData;
+import androidx.annotation.Nullable;
 
 import com.xw.project.gracefulmovies.GMApplication;
 import com.xw.project.gracefulmovies.data.ApiResponse;

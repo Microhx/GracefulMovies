@@ -1,7 +1,7 @@
 package com.xw.project.gracefulmovies;
 
 import android.app.Application;
-import android.support.v7.app.AppCompatDelegate;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.xw.project.gracefulmovies.data.db.GMDatabase;
 import com.xw.project.gracefulmovies.repository.CityRepository;

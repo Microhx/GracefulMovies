@@ -1,16 +1,17 @@
 package com.xw.project.gracefulmovies.ui.activity;
 
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.databinding.ViewDataBinding;
+import com.google.android.material.navigation.NavigationView;
+import androidx.fragment.app.Fragment;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,7 +54,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements N
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mBinding = (ActivityMainBinding) DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         setSupportActionBar(mBinding.toolbar);
         int resId = getResources().getIdentifier("status_bar_height", "dimen", "android");

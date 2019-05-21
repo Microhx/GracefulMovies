@@ -1,7 +1,7 @@
 package com.xw.project.gracefulmovies.repository;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.xw.project.gracefulmovies.GMApplication;
 import com.xw.project.gracefulmovies.data.db.entity.CityEntity;

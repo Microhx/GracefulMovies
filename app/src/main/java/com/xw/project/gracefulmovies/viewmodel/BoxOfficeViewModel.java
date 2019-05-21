@@ -1,7 +1,7 @@
 package com.xw.project.gracefulmovies.viewmodel;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Transformations;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Transformations;
 
 import com.xw.project.gracefulmovies.data.DataResource;
 import com.xw.project.gracefulmovies.data.db.entity.BoxOfficeEntity;

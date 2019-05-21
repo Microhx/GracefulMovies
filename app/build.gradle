@@ -1,9 +1,14 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+
 apply plugin: 'AndResGuard'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
+
     defaultConfig {
         applicationId "com.xw.project.gracefulmovies"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -11,7 +16,7 @@ android {
         versionCode 59
         versionName "3.1.1"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
 
         renderscriptTargetApi 25
@@ -22,10 +27,16 @@ android {
         ndk {
             abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a'//, 'x86'
         }
+
+        //multiDexEnabled true
+        multiDexEnabled true
     }
+
+
     dataBinding {
         enabled = true
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -50,14 +61,18 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
     lintOptions {
         abortOnError false
     }
+
+
     // 编译选项
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
     }
@@ -68,6 +83,7 @@ android {
         }
     }
 }
+
 
 andResGuard {
     mappingFile = file("./resource_mapping.txt")
@@ -98,25 +114,25 @@ ext {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'
 
-    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-    implementation "com.android.support:design:$rootProject.ext.supportLibraryVersion"
-    implementation "com.android.support:cardview-v7:$rootProject.ext.supportLibraryVersion"
-    implementation "com.android.support:palette-v7:$rootProject.ext.supportLibraryVersion"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation "android.arch.lifecycle:runtime:$arch"
-    implementation "android.arch.lifecycle:extensions:$arch"
-    implementation "android.arch.lifecycle:common-java8:$arch"
-    annotationProcessor "android.arch.lifecycle:compiler:$arch"
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.palette:palette:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.0.0'
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0'
 
-    implementation "android.arch.persistence.room:runtime:$arch"
-    annotationProcessor "android.arch.persistence.room:compiler:$arch"
-    implementation "android.arch.persistence.room:rxjava2:$arch"
+    implementation 'androidx.room:room-runtime:2.0.0'
+    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+    implementation 'androidx.room:room-rxjava2:2.0.0'
 
     implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
@@ -127,14 +143,18 @@ dependencies {
     implementation("com.squareup.retrofit2:adapter-rxjava2:$retrofit_version") {
         exclude group: 'io.reactivex'
     }
+
     implementation('com.github.ihsanbal:LoggingInterceptor:2.0.7') {
         exclude group: 'org.json', module: 'json'
     }
+
     implementation 'com.yanzhenjie:permission:2.0.0-rc12'
     implementation('com.iarcuschin:simpleratingbar:0.1.5') {
         exclude group: 'com.android.support'
         exclude group: 'org.androidannotations'
     }
+
+
     implementation 'com.github.bumptech.glide:glide:3.8.0'
     implementation 'com.github.woxingxiao:VectorCompatTextView:2.5'
     implementation 'com.github.woxingxiao:BounceScrollView:1.3'
@@ -149,5 +169,11 @@ dependencies {
         exclude group: 'com.android.support'
     }
 
+    implementation "androidx.core:core-ktx:1.0.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
+
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    kapt "com.android.databinding:compiler:$androidPluginVersion"
 
 }

@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -72,7 +72,7 @@
                     app:srcCompat="@drawable/ic_play"
                     android:tint="@color/color_white"/>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/name_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                     app:layout_constraintTop_toTopOf="@+id/cover_iv"
                     tools:text="@string/app_name"/>
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/name_en_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -288,7 +288,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linear_movie_detail"/>
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/actors_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -297,11 +297,11 @@
                     android:layout_marginTop="@dimen/dp_8"
                     android:orientation="horizontal"
                     android:overScrollMode="never"
-                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text2"/>
 
-                <android.support.constraint.ConstraintLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/box_office_layout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -427,7 +427,7 @@
                         app:layout_constraintEnd_toEndOf="@+id/rank_box_office_tv"
                         app:layout_constraintStart_toStartOf="@+id/rank_box_office_tv"
                         app:layout_constraintTop_toBottomOf="@+id/rank_box_office_tv"/>
-                </android.support.constraint.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/text4"
@@ -441,7 +441,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/box_office_layout"/>
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/stills_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -451,11 +451,11 @@
                     android:layout_marginTop="@dimen/dp_8"
                     android:orientation="horizontal"
                     android:overScrollMode="never"
-                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text4"/>
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </com.xw.repo.widget.BounceScrollView>
 
         <View
@@ -499,7 +499,7 @@
                 tools:text="@string/app_name"/>
         </LinearLayout>
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/go_back_iv"
             android:layout_width="?attr/actionBarSize"
             android:layout_height="?attr/actionBarSize"

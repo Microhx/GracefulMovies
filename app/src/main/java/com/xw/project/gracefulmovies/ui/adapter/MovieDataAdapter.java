@@ -1,12 +1,10 @@
 package com.xw.project.gracefulmovies.ui.adapter;
 
-import android.databinding.ViewDataBinding;
-import android.support.annotation.NonNull;
-import android.support.v7.util.DiffUtil;
-import android.util.Log;
+import androidx.databinding.ViewDataBinding;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
 import com.xw.project.gracefulmovies.R;
 import com.xw.project.gracefulmovies.data.db.entity.MovieDataItemEntity;
-import com.xw.project.gracefulmovies.data.db.entity.MovieDetailEntity;
 import com.xw.project.gracefulmovies.ui.adapter.base.BaseBindingListAdapter;
 
 /**

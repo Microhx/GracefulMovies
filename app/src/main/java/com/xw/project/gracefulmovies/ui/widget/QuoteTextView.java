@@ -2,8 +2,8 @@ package com.xw.project.gracefulmovies.ui.widget;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.text.Html;
 import android.util.AttributeSet;
 

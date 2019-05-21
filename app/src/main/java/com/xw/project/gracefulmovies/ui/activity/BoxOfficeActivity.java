@@ -1,10 +1,10 @@
 package com.xw.project.gracefulmovies.ui.activity;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.res.Resources;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
+import androidx.core.content.ContextCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AlertDialog;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,12 +13,10 @@ import com.xw.project.gracefulmovies.GMApplication;
 import com.xw.project.gracefulmovies.R;
 import com.xw.project.gracefulmovies.data.DataResource;
 import com.xw.project.gracefulmovies.databinding.ActivityBoxOfficeBinding;
+import com.xw.project.gracefulmovies.databinding.ActivityBoxOfficeBindingImpl;
 import com.xw.project.gracefulmovies.ui.activity.base.BaseActivity;
 import com.xw.project.gracefulmovies.ui.adapter.BoxOfficeAdapter;
 import com.xw.project.gracefulmovies.viewmodel.BoxOfficeViewModel;
-
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * 票房

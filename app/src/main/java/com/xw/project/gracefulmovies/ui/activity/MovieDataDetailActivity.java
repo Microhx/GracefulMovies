@@ -2,20 +2,16 @@ package com.xw.project.gracefulmovies.ui.activity;
 
 import android.content.res.Resources;
 import android.os.Handler;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import androidx.core.content.ContextCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.appcompat.widget.Toolbar;
 import android.util.TypedValue;
-import com.xw.project.gracefulmovies.GMApplication;
 import com.xw.project.gracefulmovies.R;
-import com.xw.project.gracefulmovies.data.db.entity.MovieDataItemEntity;
 import com.xw.project.gracefulmovies.databinding.ActivityMoviceDataDetailBinding;
 import com.xw.project.gracefulmovies.ui.activity.base.BaseActivity;
 import com.xw.project.gracefulmovies.ui.adapter.MovieDataAdapter;
 import com.xw.project.gracefulmovies.util.DataUtils;
-import java.util.List;
 
 /**
  * author: Java

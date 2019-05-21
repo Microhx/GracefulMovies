@@ -1,7 +1,7 @@
 package com.xw.project.gracefulmovies.viewmodel;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.xw.project.gracefulmovies.GMApplication;
 import com.xw.project.gracefulmovies.data.db.entity.CityEntity;
