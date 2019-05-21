@@ -49,5 +49,6 @@
     <string name="str_movie_info_title">电影资料</string>
     <string name="str_look_all_info">查看所有资料  ＞</string>
     <string name="str_movie_data">电影资料</string>
+    <string name="str_search_movie">搜片</string>
 
 </resources>
