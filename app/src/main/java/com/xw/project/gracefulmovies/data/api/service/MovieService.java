@@ -4,6 +4,7 @@ import com.xw.project.gracefulmovies.data.ao.MovieDetail;
 import com.xw.project.gracefulmovies.data.ao.bridge.ModelBridge;
 import com.xw.project.gracefulmovies.data.db.entity.MovieEntity;
 
+import com.xw.project.gracefulmovies.entity.NewMovieItemData;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -17,6 +18,22 @@ import retrofit2.http.Query;
  * Created by woxingxiao on 2018-08-09.
  */
 public interface MovieService {
+
+    /**
+     * 获取推荐电影
+     * @return
+     */
+    @GET("/api/movie/recommend")
+    Observable<ModelBridge<List<NewMovieItemData>>> getRecommendMovieList() ;
+
+    /**
+     * 获取热门电影
+     * @return
+     */
+    @GET("/api/movie/hot")
+    Observable<ModelBridge<List<NewMovieItemData>>> getHotMovieList();
+
+
 
     @GET("Showtime/LocationMovies.api")
     @Headers("Accept-Encoding:*")

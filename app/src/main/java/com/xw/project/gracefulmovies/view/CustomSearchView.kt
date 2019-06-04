@@ -56,7 +56,6 @@ class CustomSearchView(context: Context?, attrs: AttributeSet?) : RelativeLayout
               View.VISIBLE
         }
 
-
         searchViewInterface?.gotoSearch(s)
       }
 

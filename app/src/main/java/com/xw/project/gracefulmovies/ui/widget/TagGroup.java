@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
 import androidx.core.content.ContextCompat;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.xw.project.gracefulmovies.R;
 
+import com.xw.project.gracefulmovies.util.Util;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,6 +52,11 @@ public class TagGroup extends LinearLayout {
         setTagData(tags, 0, tintColorRes);
     }
 
+
+    public void setTagData(String[]  tags, @ColorRes int textColorRes, @ColorRes int tintColorRes) {
+        setTagData(Arrays.asList(tags), textColorRes, tintColorRes);
+    }
+
     public void setTagData(List<String> tags, @ColorRes int textColorRes, @ColorRes int tintColorRes) {
         if (tags == null || tags.isEmpty()) {
             return;
@@ -59,6 +66,7 @@ public class TagGroup extends LinearLayout {
 
         int tintColor = ContextCompat.getColor(getContext(), tintColorRes);
         for (String tag : tags) {
+            if(TextUtils.isEmpty(tag)) continue;
             createTag(tag, textColorRes, tintColor);
         }
 
@@ -68,7 +76,7 @@ public class TagGroup extends LinearLayout {
     private void createTag(String s, @ColorRes int textColorRes, @ColorInt int tintColor) {
         TextView textView = new TextView(getContext());
         LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        lp.rightMargin = dp2px(4);
+        lp.rightMargin = Util.dp2px(4);
         textView.setLayoutParams(lp);
         textView.setTextSize(9);
         if (textColorRes != 0) {
@@ -80,14 +88,10 @@ public class TagGroup extends LinearLayout {
         if (drawable != null)
             DrawableCompat.setTint(drawable, tintColor);
         textView.setBackground(drawable);
-        textView.setPadding(dp2px(2), 0, dp2px(2), 0);
+        textView.setPadding(Util.dp2px(2), 0, Util.dp2px(2), 0);
         textView.setText(s);
 
         addView(textView);
     }
 
-    private int dp2px(int dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
-                Resources.getSystem().getDisplayMetrics());
-    }
 }

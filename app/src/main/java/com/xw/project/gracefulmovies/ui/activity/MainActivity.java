@@ -78,9 +78,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements N
         mCityTv = navView.getHeaderView(0).findViewById(R.id.nav_city_tv);
 
         Fragment[] fragments = new Fragment[2];
-        fragments[0] = BaseFragment.newInstance(MovieListFragment.class, true);
-        fragments[1] = BaseFragment.newInstance(MovieListFragment.class, false);
-
+        fragments[0] = MovieListFragment.getInstance(0);
+        fragments[1] = MovieListFragment.getInstance(1);;
+        
         TabPagerAdapter adapter = new TabPagerAdapter(getSupportFragmentManager(), fragments);
         adapter.setTabTitles(new String[]{getString(R.string.has_released), getString(R.string.going_to_release)});
         mBinding.viewPager.setAdapter(adapter);

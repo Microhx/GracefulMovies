@@ -4,6 +4,7 @@ import com.ihsanbal.logging.Level;
 import com.ihsanbal.logging.LoggingInterceptor;
 import com.xw.project.gracefulmovies.BuildConfig;
 
+import com.xw.project.gracefulmovies.util.Constant;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -21,11 +22,13 @@ public class ApiClient {
     private Retrofit.Builder mRetrofitBuilder;
     private OkHttpClient.Builder mOkHttpClientBuilder;
 
+
     public ApiClient() {
         mRetrofitBuilder = new Retrofit.Builder()
-                .baseUrl("https://api-m.mtime.cn/")
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .baseUrl(Constant.BASE_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())  //https://api-m.mtime.cn/
                 .addConverterFactory(GsonConverterFactory.create());
+
 
         mOkHttpClientBuilder = new OkHttpClient.Builder();
         mOkHttpClientBuilder.connectTimeout(15, TimeUnit.SECONDS);

@@ -49,7 +49,7 @@ public class DataResource<T> {
         return mException;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////
+
     public enum Status {
         LOADING,
         SUCCESS,

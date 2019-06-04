@@ -52,10 +52,12 @@ public abstract class BaseFragment<VDB extends ViewDataBinding> extends Fragment
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
         mActivity = (FragmentActivity) context;
         MARGIN_TOP_DP = Util.getStatusBarHeight();
+        receiveArguments(getArguments());
     }
+
+    protected void receiveArguments(Bundle arguments) {}
 
     @Nullable
     @Override

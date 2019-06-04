@@ -7,6 +7,7 @@ import androidx.lifecycle.Transformations;
 import com.xw.project.gracefulmovies.data.DataResource;
 import com.xw.project.gracefulmovies.data.db.entity.CityEntity;
 import com.xw.project.gracefulmovies.data.db.entity.MovieEntity;
+import com.xw.project.gracefulmovies.entity.NewMovieItemData;
 import com.xw.project.gracefulmovies.repository.MovieRepository;
 import com.xw.project.gracefulmovies.viewmodel.base.BaseViewModel;
 
@@ -37,5 +38,11 @@ public class MovieViewModel extends BaseViewModel {
                         }
                 )
         );
+    }
+
+
+    public LiveData<DataResource<List<NewMovieItemData>>> getMainPageMovie(int position) {
+      return Transformations.switchMap(getLoadLive(), isLoad -> MovieRepository.getInstance().getMainPageMovie(position)) ;
+
     }
 }

@@ -41,7 +41,7 @@ public abstract class BaseBindingListAdapter<T> extends ListAdapter<T, BaseBindi
         super(config);
     }
 
-    @NonNull
+  @NonNull
     @Override
     @SuppressWarnings("unchecked")
     public BaseBindingVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

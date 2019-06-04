@@ -21,21 +21,30 @@ public class MovieEntity {
     @PrimaryKey
     private int id;
     private boolean isNow;
+
+
     @SerializedName(value = "title", alternate = "t")
     private String title;
+
     @SerializedName(value = "image", alternate = "img")
     private String image;
+
     @SerializedName(value = "movieType", alternate = "type")
     private String type;
+
     @SerializedName("r")
     private double rating;
+
     private String actors;
     private String actor1;
     private String actor2;
+
     @SerializedName("rYear")
     private int year;
+
     @SerializedName("rMonth")
     private int month;
+
     @SerializedName("rDay")
     private int day;
 

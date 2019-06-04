@@ -10,6 +10,7 @@ import com.xw.project.gracefulmovies.data.NetworkBoundResource;
 import com.xw.project.gracefulmovies.data.api.ApiClient;
 import com.xw.project.gracefulmovies.data.api.service.MovieService;
 import com.xw.project.gracefulmovies.data.db.entity.MovieEntity;
+import com.xw.project.gracefulmovies.entity.NewMovieItemData;
 import com.xw.project.gracefulmovies.rx.RxSchedulers;
 import com.xw.project.gracefulmovies.rx.SimpleConsumer;
 
@@ -27,6 +28,7 @@ public class MovieRepository {
     private MovieRepository() {
     }
 
+
     private static class SingletonHolder {
         private static final MovieRepository sInstance = new MovieRepository();
     }
@@ -34,6 +36,23 @@ public class MovieRepository {
     public static MovieRepository getInstance() {
         return SingletonHolder.sInstance;
     }
+
+
+    public LiveData<DataResource<List<NewMovieItemData>>> getMainPageMovie(int position) {
+        return new NetworkBoundResource<List<NewMovieItemData>>() {
+            @Nullable @Override protected LiveData<ApiResponse<List<NewMovieItemData>>> requestApi() {
+                MovieService service = new ApiClient().createApi(MovieService.class);
+                ApiResponse<List<NewMovieItemData>> response = new ApiResponse<>();
+                if(position == 0) {
+                    return response.map(service.getRecommendMovieList());
+                }
+                return response.map(service.getHotMovieList());
+            }
+
+        }.getAsLiveData() ;
+    }
+
+
 
     public LiveData<DataResource<List<MovieEntity>>> getMovieNowList(int cityId) {
         return new NetworkBoundResource<List<MovieEntity>>() {
@@ -133,4 +152,6 @@ public class MovieRepository {
             }
         }.getAsLiveData();
     }
+
+
 }
