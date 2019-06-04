@@ -14,7 +14,8 @@
     <string name="going_to_release">推荐</string>
     <string name="title_activity_about">关于</string>
     <string name="reload_data">重新加载</string>
-    <string name="starring">演职人员</string>
+    <string name="director">导演</string>
+    <string name="starring">演员</string>
     <string name="story_brief">剧情简介</string>
     <string name="format_indicator">%1$d/%2$d</string>
     <string name="location_default">位置</string>

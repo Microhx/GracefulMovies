@@ -36,6 +36,7 @@ data class NewMovieDetailData(
     var image:String?,
     var contentImage:String?,
     var movieType:String?,
+    var movieTime:String? ,
     var recommend:String?, //推荐指数
     var hot:String?  //热门指数
 

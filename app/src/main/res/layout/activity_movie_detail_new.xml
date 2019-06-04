@@ -179,7 +179,7 @@
                     android:layout_marginStart="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_16"/>
 
-                <LinearLayout
+                <com.xw.project.gracefulmovies.view.MovieDataView
                     android:id="@+id/linear_movie_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -188,52 +188,7 @@
                     app:layout_constraintTop_toBottomOf="@id/text_movie_info_title"
                     android:paddingEnd="@dimen/dp_16"
                     android:paddingTop="@dimen/dp_16"
-                    android:paddingStart="@dimen/dp_16">
-
-                    <TextView
-                        android:id="@+id/text_movie_foreign_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="译名: 比悲伤更悲伤的故事/More Than Blue"/>
-
-                    <TextView
-                        android:id="@+id/text_movie_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="片名: 比悲傷更悲傷的故事"
-                        android:layout_marginTop="4dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="年代: 2018"
-                        android:layout_marginTop="4dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="产地: 台湾"
-                        android:layout_marginTop="4dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="类别: 爱情"
-                        android:layout_marginTop="4dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="语言: 韩语普通话"
-                        android:layout_marginTop="4dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="字幕: 中文字幕"
-                        android:layout_marginTop="4dp"/>
-
-                </LinearLayout>
+                    android:paddingStart="@dimen/dp_16"/>
 
                 <TextView
                     android:id="@+id/text2"
@@ -242,146 +197,51 @@
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginStart="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_16"
-                    android:text="@string/starring"
+                    android:text="@string/director"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linear_movie_detail"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/actors_recycler_view"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/id_tv_director"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_16"
-                    android:layout_marginStart="@dimen/dp_16"
-                    android:layout_marginTop="@dimen/dp_8"
-                    android:orientation="horizontal"
-                    android:overScrollMode="never"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text2"/>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/box_office_layout"
-                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginRight="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_8"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:padding="@dimen/dp_8"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="@dimen/sp_12"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/actors_recycler_view">
-
-                    <TextView
-                        android:id="@+id/text3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_8"
-                        android:text="@string/box_office"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
-
-                    <TextView
-                        android:id="@+id/box_office_ranking_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:onClick="onClick"
-                        android:paddingBottom="@dimen/dp_8"
-                        android:paddingTop="@dimen/dp_8"
-                        android:text="实时票房榜  ＞"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/text3"
-                        app:layout_constraintEnd_toEndOf="parent"/>
-
-                    <com.xw.project.gracefulmovies.ui.widget.QuoteTextView
-                        android:id="@+id/box_office_bg"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/today_box_office_hint_tv"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/today_box_office_tv"/>
-
-                    <TextView
-                        android:id="@+id/today_box_office_tv"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_8"
-                        android:fontFamily="@font/font_number"
-                        android:gravity="center"
-                        android:includeFontPadding="false"
-                        android:paddingBottom="@dimen/dp_8"
-                        android:paddingTop="@dimen/dp_8"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="@dimen/sp_18"
-                        app:layout_constraintEnd_toStartOf="@+id/total_box_office_tv"
-                        app:layout_constraintHorizontal_chainStyle="spread_inside"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text3"
-                        tools:text="4532.05"/>
-
-                    <TextView
-                        android:id="@+id/total_box_office_tv"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/font_number"
-                        android:gravity="center"
-                        android:includeFontPadding="false"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="@dimen/sp_18"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/today_box_office_tv"
-                        app:layout_constraintEnd_toStartOf="@+id/rank_box_office_tv"
-                        app:layout_constraintStart_toEndOf="@+id/today_box_office_tv"
-                        tools:text="14532.05"/>
-
-                    <TextView
-                        android:id="@+id/rank_box_office_tv"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/font_number"
-                        android:gravity="center"
-                        android:includeFontPadding="false"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="@dimen/sp_18"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/today_box_office_tv"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/total_box_office_tv"
-                        tools:text="1"/>
-
-                    <TextView
-                        android:id="@+id/today_box_office_hint_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/dp_8"
-                        app:layout_constraintEnd_toEndOf="@+id/today_box_office_tv"
-                        app:layout_constraintStart_toStartOf="@+id/today_box_office_tv"
-                        app:layout_constraintTop_toBottomOf="@+id/today_box_office_tv"
-                        tools:text="今日票房（万）"/>
-
-                    <TextView
-                        android:id="@+id/total_box_office_hint_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_8"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/today_box_office_hint_tv"
-                        app:layout_constraintEnd_toEndOf="@+id/total_box_office_tv"
-                        app:layout_constraintStart_toStartOf="@+id/total_box_office_tv"
-                        app:layout_constraintTop_toBottomOf="@+id/total_box_office_tv"
-                        tools:text="总计票房（万）"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dp_8"
-                        android:text="今日排名"
-                        app:layout_constraintBaseline_toBaselineOf="@+id/today_box_office_hint_tv"
-                        app:layout_constraintEnd_toEndOf="@+id/rank_box_office_tv"
-                        app:layout_constraintStart_toStartOf="@+id/rank_box_office_tv"
-                        app:layout_constraintTop_toBottomOf="@+id/rank_box_office_tv"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/text2"/>
 
                 <TextView
-                    android:id="@+id/text4"
+                    android:id="@+id/text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:text="@string/starring"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/id_tv_director"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/id_tv_actor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_marginRight="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:padding="@dimen/dp_8"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="@dimen/sp_12"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text3"/>
+
+                <TextView
+                    android:id="@+id/text5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_16"
@@ -390,7 +250,7 @@
                     android:text="剧照"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/box_office_layout"/>
+                    app:layout_constraintTop_toBottomOf="@+id/id_tv_actor"/>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/stills_recycler_view"
@@ -405,7 +265,7 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text4"/>
+                    app:layout_constraintTop_toBottomOf="@+id/text5"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.xw.repo.widget.BounceScrollView>
 

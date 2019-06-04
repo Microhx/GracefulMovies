@@ -20,6 +20,24 @@ public class StringUtils {
     return tagStr.split("/");
   }
 
+  public static String parseActors(String actorStr) {
+    if (TextUtils.isEmpty(actorStr)) return "";
+    String[] array = actorStr.split("\\s{4,}");
+
+    StringBuilder stringBuilder = new StringBuilder();
+    for (int i = 0, len = array.length; i < len; i++) {
+      stringBuilder.append(array[i]);
+      if (i != len - 1) {
+        stringBuilder.append("\n");
+      }
+    }
+
+    return stringBuilder.toString();
+  }
+
+
+
+
   public static float safeParseFloat(String floatValue) {
     if (TextUtils.isEmpty(floatValue)) return 0.0f;
     try {

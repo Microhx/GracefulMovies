@@ -99,6 +99,14 @@ class NewMovieDetailActivity : NewBaseActivity() {
       release_date_tv.text = this.showTime
 
       story_brief_tv.text = this.description
+
+      linear_movie_detail.addData(this)
+
+      //导演
+      id_tv_director.text = this.movieDirector
+
+      // 演员
+      id_tv_actor.text = StringUtils.parseActors(this.movieActors)
     }
   }
 
