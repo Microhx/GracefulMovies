@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.xw.project.gracefulmovies.view.HxStateView
+        android:id="@+id/id_hx_state_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </com.xw.project.gracefulmovies.view.HxStateView>
+
+</layout>
+

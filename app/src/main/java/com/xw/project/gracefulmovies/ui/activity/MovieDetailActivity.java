@@ -175,7 +175,6 @@ public class MovieDetailActivity extends BaseActivity<ActivityMovieDetailBinding
         } else if(v.getId() == R.id.id_image_play) {
             PlayerDelegateActivity.start(this,"a movie url");
 
-
         }
     }
 

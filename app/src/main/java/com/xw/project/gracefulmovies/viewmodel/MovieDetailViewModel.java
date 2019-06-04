@@ -5,7 +5,9 @@ import androidx.lifecycle.Transformations;
 
 import com.xw.project.gracefulmovies.data.DataResource;
 import com.xw.project.gracefulmovies.data.ao.MovieDetail;
+import com.xw.project.gracefulmovies.entity.NewMovieDetailData;
 import com.xw.project.gracefulmovies.repository.MovieDetailRepository;
+import com.xw.project.gracefulmovies.ui.fragment.MovieListFragment;
 import com.xw.project.gracefulmovies.viewmodel.base.BaseViewModel;
 
 /**
@@ -19,4 +21,12 @@ public class MovieDetailViewModel extends BaseViewModel {
                 new MovieDetailRepository().getMovieDetails(locationId, movieId)
         );
     }
+
+    public LiveData<DataResource<NewMovieDetailData>> getNewMovieDetails(String movieId) {
+        return Transformations.switchMap(getLoadLive(), input ->
+            new MovieDetailRepository().getNewMovieDetails(movieId)) ;
+    }
+
+
+
 }

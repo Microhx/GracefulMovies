@@ -9,6 +9,7 @@ import com.xw.project.gracefulmovies.data.NetworkBoundResource;
 import com.xw.project.gracefulmovies.data.ao.MovieDetail;
 import com.xw.project.gracefulmovies.data.api.ApiClient;
 import com.xw.project.gracefulmovies.data.api.service.MovieService;
+import com.xw.project.gracefulmovies.entity.NewMovieDetailData;
 
 /**
  * <p>
@@ -22,10 +23,22 @@ public class MovieDetailRepository {
             @Nullable
             @Override
             protected LiveData<ApiResponse<MovieDetail>> requestApi() {
-                MovieService service = new ApiClient().createApi("https://ticket-api-m.mtime.cn/", MovieService.class);
+                MovieService service = new ApiClient().createApi(MovieService.class);
                 ApiResponse<MovieDetail> response = new ApiResponse<>();
                 return response.map(service.movieDetailGet(locationId, movieId));
             }
         }.getAsLiveData();
     }
+
+    public LiveData<DataResource<NewMovieDetailData>> getNewMovieDetails(String movieId) {
+        return new NetworkBoundResource<NewMovieDetailData>(){
+            @Nullable @Override protected LiveData<ApiResponse<NewMovieDetailData>> requestApi() {
+                MovieService service = new ApiClient().createApi(MovieService.class);
+                ApiResponse<NewMovieDetailData> response = new ApiResponse<>();
+                return response.map(service.getMovieDetails( movieId));
+            }
+
+        }.getAsLiveData();
+    }
+
 }

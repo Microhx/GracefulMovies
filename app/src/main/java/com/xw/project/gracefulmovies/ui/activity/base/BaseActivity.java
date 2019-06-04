@@ -74,9 +74,17 @@ public abstract class BaseActivity<VDB extends androidx.databinding.ViewDataBind
         IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(mReceiver, intentFilter);
 
-        mBinding = DataBindingUtil.setContentView(this, contentLayoutRes());
+        if(bindingViewByOldWay()){
+            mBinding = DataBindingUtil.setContentView(this, contentLayoutRes());
+        }
+
         afterSetContentView();
     }
+
+    protected boolean bindingViewByOldWay() {
+        return true ;
+    }
+
 
     @LayoutRes
     protected abstract int contentLayoutRes();

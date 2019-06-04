@@ -4,6 +4,7 @@ import com.xw.project.gracefulmovies.data.ao.MovieDetail;
 import com.xw.project.gracefulmovies.data.ao.bridge.ModelBridge;
 import com.xw.project.gracefulmovies.data.db.entity.MovieEntity;
 
+import com.xw.project.gracefulmovies.entity.NewMovieDetailData;
 import com.xw.project.gracefulmovies.entity.NewMovieItemData;
 import java.util.List;
 
@@ -33,6 +34,8 @@ public interface MovieService {
     @GET("/api/movie/hot")
     Observable<ModelBridge<List<NewMovieItemData>>> getHotMovieList();
 
+    @GET("/api/movie/queryMovie")
+    Observable<ModelBridge<NewMovieDetailData>> getMovieDetails(@Query("movieId") String movieId);
 
 
     @GET("Showtime/LocationMovies.api")

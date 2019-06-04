@@ -8,13 +8,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 import com.bumptech.glide.Glide;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.xw.project.gracefulmovies.R;
 import com.xw.project.gracefulmovies.data.DataResource;
 import com.xw.project.gracefulmovies.databinding.FragmentMovieListBinding;
 import com.xw.project.gracefulmovies.entity.NewMovieItemData;
+import com.xw.project.gracefulmovies.ui.activity.NewMovieDetailActivity;
 import com.xw.project.gracefulmovies.ui.adapter.NewMovieItemAdapter;
 import com.xw.project.gracefulmovies.ui.widget.BlurTransformation;
+import com.xw.project.gracefulmovies.util.Logy;
 import com.xw.project.gracefulmovies.viewmodel.MovieViewModel;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
@@ -26,7 +29,7 @@ import java.util.List;
  * Created by woxingxiao on 2017-01-23.
  */
 public class MovieListFragment extends BaseFragment<FragmentMovieListBinding> implements
-    DiscreteScrollView.ScrollStateChangeListener<BaseViewHolder> {
+    DiscreteScrollView.ScrollStateChangeListener<BaseViewHolder>,  BaseQuickAdapter.OnItemClickListener {
 
   public static MovieListFragment getInstance(int position) {
     MovieListFragment fragment = new MovieListFragment();
@@ -55,7 +58,6 @@ public class MovieListFragment extends BaseFragment<FragmentMovieListBinding> im
     if (bundle != null) {
       mPosition = bundle.getInt("position",0);
     }
-
   }
 
   @Override
@@ -90,6 +92,8 @@ public class MovieListFragment extends BaseFragment<FragmentMovieListBinding> im
         List<NewMovieItemData> movies = resource.getData();
         if (mAdapter == null) {
           mAdapter = new NewMovieItemAdapter();
+          mAdapter.setOnItemClickListener(this);
+
           mAdapter.addData(movies);
           mBinding.infiniteViewPager.setAdapter(mAdapter);
         } else {
@@ -220,5 +224,17 @@ public class MovieListFragment extends BaseFragment<FragmentMovieListBinding> im
       alpha = -position / 2 + 1f;
       currentHolder.itemView.setAlpha(alpha);
     }
+  }
+
+
+  @Override public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+    NewMovieItemData itemData = mAdapter.getData().get(position);
+
+    Logy.i("onItemClick------>>");
+
+    if(null != itemData) {
+      NewMovieDetailActivity.Companion.start(requireContext(), itemData.getMovieId());
+    }
+
   }
 }

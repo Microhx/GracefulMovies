@@ -69,6 +69,7 @@
                   android:label="@string/str_search_movie"
                   android:screenOrientation="portrait"/>
         <activity android:name=".ui.search.MovieSearchActivity"/>
+        <activity android:name=".ui.activity.NewMovieDetailActivity"/>
 
         <service
             android:name=".service.LocationService"
