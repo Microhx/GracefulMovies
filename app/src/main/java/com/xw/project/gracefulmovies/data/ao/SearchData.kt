@@ -12,5 +12,10 @@ package com.xw.project.gracefulmovies.data.ao
  * desc :
  *
  *
+ * 类型 ===> 喜剧 / 战争 / 科幻
+ * 年份 ===> 2019年/ 2018年/ 2017年/ 2016年 ......
+ * 国家 ===> 中国大陆 / 台湾 / 日本 /
+ * 评分 ===> 9分以上 / 8 - 9分 / 7 - 8分 /
+ *
  */
 data class SearchData(val name: String)

@@ -42,7 +42,11 @@ abstract class BaseRefreshActivity<T> : BaseActivity<ActivityRefreshLayoutBindin
     initRefreshLayout()
 
     initRecyclerView()
+
+    initLoadData()
   }
+
+  open fun initLoadData() {}
 
   /**
    * 初始化上下拉加载组件

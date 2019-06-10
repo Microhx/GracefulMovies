@@ -21,5 +21,7 @@ data class NewMovieItemData(
     var movieType:String?,
     var score:String?,
     var mainActor:String?,
-    var publishTime:String?
+    var publishTime:String?,
+    var playCount:String?,
+    var transitionName:String?
 )

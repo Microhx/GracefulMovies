@@ -229,12 +229,8 @@ public class MovieListFragment extends BaseFragment<FragmentMovieListBinding> im
 
   @Override public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
     NewMovieItemData itemData = mAdapter.getData().get(position);
-
-    Logy.i("onItemClick------>>");
-
     if(null != itemData) {
       NewMovieDetailActivity.Companion.start(requireContext(), itemData.getMovieId());
     }
-
   }
 }

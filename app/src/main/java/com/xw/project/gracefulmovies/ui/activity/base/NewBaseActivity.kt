@@ -1,5 +1,6 @@
 package com.xw.project.gracefulmovies.ui.activity.base
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.DataBindingUtil
 import com.xw.project.gracefulmovies.R
 import com.xw.project.gracefulmovies.view.HxStateView
@@ -75,6 +77,9 @@ abstract class NewBaseActivity : AppCompatActivity() {
       window.statusBarColor = Color.TRANSPARENT
     }
   }
+
+
+
 
 //  final override fun bindingViewByOldWay(): Boolean = false
 //

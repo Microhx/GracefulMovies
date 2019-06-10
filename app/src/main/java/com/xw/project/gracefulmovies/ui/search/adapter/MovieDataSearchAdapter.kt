@@ -5,7 +5,9 @@ import com.xw.project.gracefulmovies.R
 import com.xw.project.gracefulmovies._data.DataUtils
 import com.xw.project.gracefulmovies.data.ao.SearchData
 import com.xw.project.gracefulmovies.data.ao.SearchMovieData
+import com.xw.project.gracefulmovies.entity.NewMovieItemData
 import com.xw.project.gracefulmovies.ui.activity.adaper.BaseCommonAdapter
+import com.xw.project.gracefulmovies.util.ImageUtils
 
 /**
  * author: Java
@@ -20,9 +22,16 @@ import com.xw.project.gracefulmovies.ui.activity.adaper.BaseCommonAdapter
  *
  *
  */
-class MovieDataSearchAdapter : BaseCommonAdapter<SearchMovieData>(DataUtils.getSearchMovieData(20),R.layout.item_search_movie) {
+class MovieDataSearchAdapter : BaseCommonAdapter<NewMovieItemData>(ArrayList<NewMovieItemData>(),R.layout.item_search_movie) {
 
-  override fun convert(helper: BaseViewHolder?, item: SearchMovieData?) {
+
+  override fun convert(helper: BaseViewHolder, item: NewMovieItemData?) {
+    ImageUtils.loadImage(item?.image, helper.getView(R.id.id_image))
+    helper.setText(R.id.id_tv_content, item?.movieName)
+    helper.setText(R.id.id_tv_foreign_name, item?.transitionName)
+    helper.setText(R.id.id_tv_type, item?.movieType)
+    helper.setText(R.id.id_tv_time, item?.publishTime)
+    helper.setText(R.id.id_tv_count, "播放次数:${item?.playCount}")
 
   }
 

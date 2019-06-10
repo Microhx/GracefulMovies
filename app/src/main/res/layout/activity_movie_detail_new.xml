@@ -234,6 +234,7 @@
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginRight="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_8"
+                    android:lineSpacingExtra="@dimen/dp_4"
                     android:padding="@dimen/dp_8"
                     android:textColor="?android:textColorPrimary"
                     android:textSize="@dimen/sp_12"
@@ -252,20 +253,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/id_tv_actor"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/stills_recycler_view"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/id_image_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/dp_24"
                     android:layout_marginLeft="@dimen/dp_16"
                     android:layout_marginStart="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_8"
-                    android:orientation="horizontal"
-                    android:overScrollMode="never"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/text5"/>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.xw.repo.widget.BounceScrollView>
 

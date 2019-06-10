@@ -107,7 +107,14 @@ class NewMovieDetailActivity : NewBaseActivity() {
 
       // 演员
       id_tv_actor.text = StringUtils.parseActors(this.movieActors)
+
+      Logy.i("imageContent:" + this.contentImage)
+
+      //TODO
+      Glide.with(applicationContext).load(this.contentImage).into(id_image_view)
+
     }
+
   }
 
   companion object {

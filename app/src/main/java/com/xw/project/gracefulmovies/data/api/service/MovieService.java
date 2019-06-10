@@ -37,6 +37,9 @@ public interface MovieService {
     @GET("/api/movie/queryMovie")
     Observable<ModelBridge<NewMovieDetailData>> getMovieDetails(@Query("movieId") String movieId);
 
+    @GET("/api/movie/queryMovieByName")
+    Observable<ModelBridge<List<NewMovieItemData>>> searchMovieData(@Query("movieName") String movieName,
+                                                                    @Query("pageIndex") int pageIndex);
 
     @GET("Showtime/LocationMovies.api")
     @Headers("Accept-Encoding:*")
@@ -52,4 +55,7 @@ public interface MovieService {
             @Query("locationId") String locationId,
             @Query("movieId") int movieId
     );
+
+
+
 }

@@ -48,6 +48,11 @@ import java.net.UnknownHostException;
 
 public abstract class BaseActivity<VDB extends androidx.databinding.ViewDataBinding> extends AppCompatActivity {
 
+    public static final int START_PAGE = 1 ;
+    public static final int PAGE_SIZE = 20 ;
+
+
+
     protected static final String PARAM_1 = "param_1";
     protected static final String PARAM_2 = "param_2";
     protected static final String OBJ_1 = "obj_1";

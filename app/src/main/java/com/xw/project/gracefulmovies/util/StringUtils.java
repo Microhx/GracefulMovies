@@ -36,8 +36,6 @@ public class StringUtils {
   }
 
 
-
-
   public static float safeParseFloat(String floatValue) {
     if (TextUtils.isEmpty(floatValue)) return 0.0f;
     try {

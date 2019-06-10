@@ -182,4 +182,8 @@ dependencies {
     //base quick adapter for androidX
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45-androidx'
 
+
+    //pandora for the test plugin
+    debugImplementation 'com.github.whataa:pandora:v2.0.4'
+
 }

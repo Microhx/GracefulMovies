@@ -70,6 +70,7 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".ui.search.MovieSearchActivity"/>
         <activity android:name=".ui.activity.NewMovieDetailActivity"/>
+        <activity android:name=".ui.activity.DebugActivity"/>
 
         <service
             android:name=".service.LocationService"

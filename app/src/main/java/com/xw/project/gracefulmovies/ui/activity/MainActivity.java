@@ -151,6 +151,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements N
             case R.id.nav_about:
                 navigate(AboutActivity.class);
                 break;
+
+            case R.id.nav_debug:
+                startActivity(new Intent(this, DebugActivity.class));
+                break;
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -158,8 +162,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements N
         return true;
     }
 
-    long mStartMills;
-
+    
+    private long mStartMills;
     @Override
     public void onBackPressed() {
         if (mBinding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
