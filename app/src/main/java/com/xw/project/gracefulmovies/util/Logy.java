@@ -10,7 +10,7 @@ import android.util.Log;
 
 public final class Logy {
 
-    private static final String TAG = "GracefulMovies";
+    private static final String TAG = "HxLog";
     private static boolean DEBUG ;
 
     public static void init(boolean debug) {

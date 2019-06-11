@@ -30,13 +30,12 @@ import java.util.List;
 public class MovieSearchViewModel extends BaseViewModel {
 
   public MediatorLiveData<BaseSuperData<NewMovieItemData>> itemData = new MediatorLiveData<>();
-
   private MovieSearchRepository mMovieSearchRepository = new MovieSearchRepository();
-
 
   public void searchMovieInfo(String movieName, int pageIndex) {
     LiveData<DataResource<List<NewMovieItemData>>> liveData = mMovieSearchRepository.searchMovieData(movieName, pageIndex);
     liveData.observeForever(list -> {
+      if(list.getStatus() == DataResource.Status.LOADING) return;
 
       BaseSuperData<NewMovieItemData> superData = new BaseSuperData<>();
       superData.index = pageIndex;

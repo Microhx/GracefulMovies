@@ -49,6 +49,13 @@ public class DataResource<T> {
         return mException;
     }
 
+    @Override public String toString() {
+        return "DataResource{" +
+            "mStatus=" + mStatus +
+            ", mData=" + mData +
+            ", mException=" + mException +
+            '}';
+    }
 
     public enum Status {
         LOADING,

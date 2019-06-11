@@ -11,6 +11,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.xw.project.gracefulmovies.R
 import com.xw.project.gracefulmovies.databinding.ActivityRefreshLayoutBinding
 import com.xw.project.gracefulmovies.ui.activity.adaper.BaseCommonAdapter
+import com.xw.project.gracefulmovies.util.Logy
 import com.xw.project.gracefulmovies.view.CustomLoadMoreView
 
 /**
@@ -85,8 +86,9 @@ abstract class BaseRefreshActivity<T> : BaseActivity<ActivityRefreshLayoutBindin
   open fun initAdapter(recyclerView: RecyclerView) {
     recyclerViewAdapter = subClassInitAdapter()
     recyclerViewAdapter.apply {
-        setOnItemChildClickListener{_,_,position -> {
-            //TODO
+        setOnItemClickListener{_,_,position ->
+          run {
+            onItemChildClick(position)
           }
         }
 
@@ -94,6 +96,8 @@ abstract class BaseRefreshActivity<T> : BaseActivity<ActivityRefreshLayoutBindin
         setLoadMoreView(CustomLoadMoreView())
 
         setOnLoadMoreListener({
+          Logy.i("onLoadMore:" + System.currentTimeMillis())
+
           loadMoreData()
         }, mBinding.recyclerView)
     }
@@ -101,7 +105,7 @@ abstract class BaseRefreshActivity<T> : BaseActivity<ActivityRefreshLayoutBindin
     mBinding.recyclerView.adapter = recyclerViewAdapter
   }
 
-
+  open fun onItemChildClick(position: Int) {}
 
   open fun initLayoutManager(recyclerView: RecyclerView) {
     recyclerView.layoutManager = LinearLayoutManager(applicationContext)
@@ -114,6 +118,11 @@ abstract class BaseRefreshActivity<T> : BaseActivity<ActivityRefreshLayoutBindin
   open fun loadMoreData() {}
 
   abstract fun subClassInitAdapter(): BaseCommonAdapter<T>
+
+  protected fun setOnRefreshFinished() {
+    mBinding.swipeRefreshLayout.isRefreshing = false
+
+  }
 
 
 }
