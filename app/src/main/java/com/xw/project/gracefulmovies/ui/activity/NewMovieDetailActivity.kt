@@ -3,13 +3,15 @@ package com.xw.project.gracefulmovies.ui.activity
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
-import com.xw.project.gracefulmovies.R
+
 import com.xw.project.gracefulmovies.data.DataResource
 import com.xw.project.gracefulmovies.entity.NewMovieDetailData
 import com.xw.project.gracefulmovies.ui.activity.base.NewBaseActivity
+import com.xw.project.gracefulmovies.ui.activity.play.PlayerDelegateActivity
 import com.xw.project.gracefulmovies.ui.fragment.PreviewImageFragment
 import com.xw.project.gracefulmovies.ui.widget.BlurTransformation
 import com.xw.project.gracefulmovies.util.Logy
@@ -17,6 +19,8 @@ import com.xw.project.gracefulmovies.util.MathUtils
 import com.xw.project.gracefulmovies.util.StringUtils
 import com.xw.project.gracefulmovies.viewmodel.MovieDetailViewModel
 import kotlinx.android.synthetic.main.activity_movie_detail_new.*
+
+
 
 /**
  * 影片详情
@@ -30,12 +34,12 @@ class NewMovieDetailActivity : NewBaseActivity() {
    * 电影id
    */
   private var movieId: String? = null
-
   private var mPreviewImageFragment: PreviewImageFragment? = null
-
   private var mViewModel: MovieDetailViewModel? = null
+  private var mMovieDetailData :NewMovieDetailData?= null
 
-  override fun getContentLayout() = R.layout.activity_movie_detail_new
+  override fun getContentLayout() = com.xw.project.gracefulmovies.R.layout.activity_movie_detail_new
+
 
   override fun receiveIntent(intent: Intent?) {
     intent?.let {
@@ -82,6 +86,8 @@ class NewMovieDetailActivity : NewBaseActivity() {
     transparentStatusBar()
 
     data?.apply {
+      mMovieDetailData = this
+
       Glide.with(this@NewMovieDetailActivity)
         .load(this.image)
         .transform(BlurTransformation(this@NewMovieDetailActivity, 10f))
@@ -93,7 +99,7 @@ class NewMovieDetailActivity : NewBaseActivity() {
       name_en_tv.text = this.transitionName
       rating_bar.rating = MathUtils.calculateRate(this.score)
       rating_tv.text = "${this.score} 分"
-      type_container.setTagData(StringUtils.parseTag(this.movieType),R.color.colorAccent)
+      type_container.setTagData(StringUtils.parseTag(this.movieType), com.xw.project.gracefulmovies.R.color.colorAccent)
 
       duration_tv.text = this.movieSize
       release_date_tv.text = this.showTime
@@ -114,8 +120,15 @@ class NewMovieDetailActivity : NewBaseActivity() {
       Glide.with(applicationContext).load(this.contentImage).into(id_image_view)
 
     }
-
   }
+
+
+  fun gotoMovie(v:View) {
+    mMovieDetailData?.apply {
+      PlayerDelegateActivity.start(this@NewMovieDetailActivity, this.movieId)
+    }
+  }
+
 
   companion object {
 
