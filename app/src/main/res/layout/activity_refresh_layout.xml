@@ -48,7 +48,6 @@
             android:layout_margin="@dimen/fab_margin"
             app:backgroundTint="#808080"
             app:elevation="0dp"
-            android:visibility="gone"
             app:layout_behavior="com.xw.project.gracefulmovies.ui.widget.ScrollAwareFABBehavior"
             app:srcCompat="@drawable/svg_ic_top"/>
 

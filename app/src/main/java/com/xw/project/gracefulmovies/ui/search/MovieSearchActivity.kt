@@ -1,5 +1,6 @@
 package com.xw.project.gracefulmovies.ui.search
 
+import android.content.Context
 import android.text.Editable
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
@@ -18,6 +19,7 @@ import com.xw.project.gracefulmovies.util.CommonUtils
 import com.xw.project.gracefulmovies.util.Logy
 import com.xw.project.gracefulmovies.view.CustomSearchView
 import com.xw.project.gracefulmovies.viewmodel.MovieSearchViewModel
+import io.github.inflationx.viewpump.ViewPumpContextWrapper
 
 /**
  * author: Java
@@ -49,9 +51,9 @@ class MovieSearchActivity : BaseRefreshActivity<NewMovieItemData>(), CustomSearc
 
   override fun initLoadData() {
     mMovieSearchViewModel = ViewModelProviders.of(this).get(MovieSearchViewModel::class.java)
-    mMovieSearchViewModel.itemData.observe(this, Observer {
-        Logy.i("initData:${it.data.size}")
 
+
+    mMovieSearchViewModel.itemData.observe(this, Observer {
         setOnRefreshFinished()
         if(it.index == START_PAGE) {
           mMovieDataSearchAdapter.replaceData(it.data)
@@ -107,6 +109,8 @@ class MovieSearchActivity : BaseRefreshActivity<NewMovieItemData>(), CustomSearc
     mCurrentPage = START_PAGE
     mMovieSearchViewModel.searchMovieInfo(this.mCurrentKeyWords, mCurrentPage)
   }
+
+
 
 }
 

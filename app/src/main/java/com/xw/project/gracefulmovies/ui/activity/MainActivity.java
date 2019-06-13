@@ -1,6 +1,12 @@
 package com.xw.project.gracefulmovies.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.util.Log;
+import android.view.FrameMetrics;
+import android.view.Window;
+import android.widget.LinearLayout;
 import androidx.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Build;
@@ -29,6 +35,7 @@ import com.xw.project.gracefulmovies.ui.fragment.BaseFragment;
 import com.xw.project.gracefulmovies.ui.fragment.MovieListFragment;
 import com.xw.project.gracefulmovies.ui.search.MovieTypeSearchActivity;
 import com.xw.project.gracefulmovies.util.Util;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 /**
  * 首页
@@ -100,7 +107,40 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements N
                 .observe(this, cityEntity ->
                         mCityTv.setText(cityEntity == null ? "位置" : cityEntity.getName())
                 );
+
+        checkFrameMetrics();
     }
+
+    FrameMetrics mFrameMetrics ;
+    Handler mHandler = new Handler();
+    private void checkFrameMetrics() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            getWindow().addOnFrameMetricsAvailableListener((window, frameMetrics, dropCountSinceLastInvocation) -> {
+                mFrameMetrics = new FrameMetrics(frameMetrics);
+            }, mHandler);
+        }
+
+        mHandler.postDelayed(() -> {
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                Log.d("Metrics", "animation_duration: " + mFrameMetrics.getMetric(FrameMetrics.ANIMATION_DURATION) / Math.pow(10, 6));
+                Log.d("Metrics", "command_issue_duration: " + mFrameMetrics.getMetric(FrameMetrics.COMMAND_ISSUE_DURATION) / Math.pow(10, 6));
+                Log.d("Metrics", "draw_duration: " + mFrameMetrics.getMetric(FrameMetrics.DRAW_DURATION) / Math.pow(10, 6));
+                Log.d("Metrics", "first_draw_frame: " + mFrameMetrics.getMetric(FrameMetrics.FIRST_DRAW_FRAME) / Math.pow(10, 6));
+                Log.d("Metrics", "input_handling_duration: " + mFrameMetrics.getMetric(FrameMetrics.INPUT_HANDLING_DURATION) / Math.pow(10, 6));
+                Log.d("Metrics", "layout_measure_duration: " + mFrameMetrics.getMetric(FrameMetrics.LAYOUT_MEASURE_DURATION) / Math.pow(10, 6));
+                Log.d("Metrics", "swap_buffers_duration: " + mFrameMetrics.getMetric(FrameMetrics.SWAP_BUFFERS_DURATION) / Math.pow(10, 6));
+                Log.d("Metrics", "sync_duration: " + mFrameMetrics.getMetric(FrameMetrics.SYNC_DURATION) / Math.pow(10, 6));
+                Log.d("Metrics", "total_duration: " + mFrameMetrics.getMetric(FrameMetrics.TOTAL_DURATION) / Math.pow(10, 6));
+                Log.d("Metrics", "unknown_delay_duration: " + mFrameMetrics.getMetric(FrameMetrics.UNKNOWN_DELAY_DURATION) / Math.pow(10, 6));
+            }else {
+                Log.e("Metrics","build version_code :" + Build.VERSION.SDK_INT);
+            }
+
+
+        },300);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -194,4 +234,5 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements N
         builder.setPositiveButton(getString(R.string.confirm), null);
         builder.show();
     }
+
 }

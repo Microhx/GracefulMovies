@@ -1,6 +1,7 @@
 package com.xw.project.gracefulmovies.ui.activity;
 
 import android.Manifest;
+import android.content.Context;
 import androidx.lifecycle.LiveData;
 import android.content.DialogInterface;
 import androidx.databinding.DataBindingUtil;
@@ -21,6 +22,7 @@ import com.xw.project.gracefulmovies.rx.SimpleConsumer;
 import com.xw.project.gracefulmovies.ui.activity.base.BaseActivity;
 import com.yanzhenjie.permission.AndPermission;
 
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import io.reactivex.Observable;
 
 /**
@@ -150,5 +152,10 @@ public class SplashActivity extends AppCompatActivity {
         BaseActivity.navigate(SplashActivity.this, MainActivity.class);
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         finish();
+    }
+
+
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 }

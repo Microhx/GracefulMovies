@@ -24,9 +24,9 @@ android {
 
         resConfigs "zh" // 仅支持中文
 
-        ndk {
-            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a'//, 'x86'
-        }
+        //ndk {
+           // abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a'//, 'x86'
+       // }
 
         //multiDexEnabled true
         multiDexEnabled true
@@ -182,8 +182,10 @@ dependencies {
     //base quick adapter for androidX
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45-androidx'
 
+    //implementation 'com.frogermcs.activityframemetrics:activityframemetrics:0.1.0'
 
     //pandora for the test plugin
     debugImplementation 'com.github.whataa:pandora:v2.0.4'
 
+    implementation project(path: ':viewpump')
 }

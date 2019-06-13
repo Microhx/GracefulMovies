@@ -18,6 +18,7 @@ import com.xw.project.gracefulmovies.util.Logy
 import com.xw.project.gracefulmovies.util.MathUtils
 import com.xw.project.gracefulmovies.util.StringUtils
 import com.xw.project.gracefulmovies.viewmodel.MovieDetailViewModel
+import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_movie_detail_new.*
 
 
@@ -121,7 +122,6 @@ class NewMovieDetailActivity : NewBaseActivity() {
 
     }
   }
-
 
   fun gotoMovie(v:View) {
     mMovieDetailData?.apply {
