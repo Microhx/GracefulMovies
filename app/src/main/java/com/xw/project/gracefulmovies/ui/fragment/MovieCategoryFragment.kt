@@ -65,7 +65,6 @@ class MovieCategoryFragment : NewBaseFragment() {
                             }
                         }
                     })
-
             load()
         }
     }

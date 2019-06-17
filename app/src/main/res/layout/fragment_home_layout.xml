@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false">
+
+    <com.xw.project.gracefulmovies.ui.widget.UnScrollableViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_8"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/now_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_radio_bg_left"
+            android:button="@android:color/transparent"
+            android:checked="true"
+            android:paddingBottom="@dimen/dp_4"
+            android:paddingLeft="@dimen/dp_12"
+            android:paddingRight="@dimen/dp_12"
+            android:paddingTop="@dimen/dp_4"
+            android:text="@string/has_released"
+            android:textColor="@drawable/selector_text_color_tab"/>
+
+        <RadioButton
+            android:id="@+id/coming_radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_radio_bg_right"
+            android:button="@android:color/transparent"
+            android:paddingBottom="@dimen/dp_4"
+            android:paddingLeft="@dimen/dp_12"
+            android:paddingRight="@dimen/dp_12"
+            android:paddingTop="@dimen/dp_4"
+            android:text="@string/going_to_release"
+            android:textColor="@drawable/selector_text_color_tab"/>
+    </RadioGroup>
+
+</FrameLayout>

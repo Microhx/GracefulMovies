@@ -57,5 +57,9 @@
     <string name="str_state_loading">数据加载中…</string>
     <string name="str_state_empty">数据空空如也…</string>
     <string name="str_state_error">数据加载失败，请点击重试…</string>
+    <string name="base_str_home">推荐</string>
+    <string name="base_str_category">分类</string>
+    <string name="base_str_trend">趋势</string>
+    <string name="base_str_me">我的</string>
 
 </resources>

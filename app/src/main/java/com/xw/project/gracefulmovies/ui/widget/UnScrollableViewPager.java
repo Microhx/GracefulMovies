@@ -7,7 +7,6 @@ import android.view.MotionEvent;
 
 /**
  * <p>
- * Created by woxingxiao on 2017-06-20.
  */
 
 public class UnScrollableViewPager extends ViewPager {

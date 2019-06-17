@@ -33,7 +33,6 @@ import com.xw.project.gracefulmovies.util.Util;
 /**
  * 首页
  * <p>
- * Created by woxingxiao on 2018-08-12.
  */
 public class MainActivity extends BaseActivity<ActivityMainBinding> implements NavigationView
         .OnNavigationItemSelectedListener {
@@ -79,7 +78,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements N
 
         Fragment[] fragments = new Fragment[2];
         fragments[0] = MovieListFragment.getInstance(0);
-        fragments[1] = MovieListFragment.getInstance(1);;
+        fragments[1] = MovieListFragment.getInstance(1);
         
         TabPagerAdapter adapter = new TabPagerAdapter(getSupportFragmentManager(), fragments);
         adapter.setTabTitles(new String[]{getString(R.string.has_released), getString(R.string.going_to_release)});
