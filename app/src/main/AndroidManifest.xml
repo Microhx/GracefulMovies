@@ -21,9 +21,8 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".ui.activity.SplashActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
+            android:name=".ui.activity.EmptyActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>
@@ -71,6 +70,10 @@
         <activity android:name=".ui.search.MovieSearchActivity"/>
         <activity android:name=".ui.activity.NewMovieDetailActivity"/>
         <activity android:name=".ui.activity.DebugActivity"/>
+
+<!--
+        <activity android:name=".ui.activity.EmptyActivity" />
+-->
 
         <service
             android:name=".service.LocationService"

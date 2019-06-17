@@ -28,7 +28,7 @@ import com.xw.project.gracefulmovies.util.StringUtils
  *
  *
  */
-class NewMovieItemAdapter() : BaseCommonAdapter<NewMovieItemData>(ArrayList(), R.layout.item_movie_new) {
+class NewMovieItemAdapter : BaseCommonAdapter<NewMovieItemData>(ArrayList(), R.layout.item_movie_new) {
 
   override fun convert(helper: BaseViewHolder?, item: NewMovieItemData) {
     helper?.apply {

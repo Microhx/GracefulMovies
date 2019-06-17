@@ -13,8 +13,7 @@ package com.xw.project.gracefulmovies.util;
  */
 public class Constant {
 
-  public static final String BASE_URL = "http://192.168.20.206:8080";
-
+  public static final String BASE_URL = "http://192.168.100.101:8080";
 
 
 }

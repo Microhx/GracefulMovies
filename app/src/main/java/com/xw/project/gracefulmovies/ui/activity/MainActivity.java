@@ -1,22 +1,8 @@
 package com.xw.project.gracefulmovies.ui.activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
-import android.util.Log;
-import android.view.FrameMetrics;
-import android.view.Window;
-import android.widget.LinearLayout;
-import androidx.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Build;
-import androidx.annotation.NonNull;
-import com.google.android.material.navigation.NavigationView;
-import androidx.fragment.app.Fragment;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +10,15 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.view.GravityCompat;
+import androidx.databinding.DataBindingUtil;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.material.navigation.NavigationView;
 import com.xw.project.gracefulmovies.GMApplication;
 import com.xw.project.gracefulmovies.R;
 import com.xw.project.gracefulmovies.data.db.entity.CityEntity;
@@ -31,11 +26,9 @@ import com.xw.project.gracefulmovies.databinding.ActivityMainBinding;
 import com.xw.project.gracefulmovies.service.LocationService;
 import com.xw.project.gracefulmovies.ui.activity.base.BaseActivity;
 import com.xw.project.gracefulmovies.ui.adapter.TabPagerAdapter;
-import com.xw.project.gracefulmovies.ui.fragment.BaseFragment;
 import com.xw.project.gracefulmovies.ui.fragment.MovieListFragment;
 import com.xw.project.gracefulmovies.ui.search.MovieTypeSearchActivity;
 import com.xw.project.gracefulmovies.util.Util;
-import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 /**
  * 首页
@@ -61,7 +54,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements N
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
-        mBinding = (ActivityMainBinding) DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mBinding =  DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         setSupportActionBar(mBinding.toolbar);
         int resId = getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -108,38 +101,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements N
                         mCityTv.setText(cityEntity == null ? "位置" : cityEntity.getName())
                 );
 
-        checkFrameMetrics();
     }
 
-    FrameMetrics mFrameMetrics ;
-    Handler mHandler = new Handler();
-    private void checkFrameMetrics() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            getWindow().addOnFrameMetricsAvailableListener((window, frameMetrics, dropCountSinceLastInvocation) -> {
-                mFrameMetrics = new FrameMetrics(frameMetrics);
-            }, mHandler);
-        }
-
-        mHandler.postDelayed(() -> {
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                Log.d("Metrics", "animation_duration: " + mFrameMetrics.getMetric(FrameMetrics.ANIMATION_DURATION) / Math.pow(10, 6));
-                Log.d("Metrics", "command_issue_duration: " + mFrameMetrics.getMetric(FrameMetrics.COMMAND_ISSUE_DURATION) / Math.pow(10, 6));
-                Log.d("Metrics", "draw_duration: " + mFrameMetrics.getMetric(FrameMetrics.DRAW_DURATION) / Math.pow(10, 6));
-                Log.d("Metrics", "first_draw_frame: " + mFrameMetrics.getMetric(FrameMetrics.FIRST_DRAW_FRAME) / Math.pow(10, 6));
-                Log.d("Metrics", "input_handling_duration: " + mFrameMetrics.getMetric(FrameMetrics.INPUT_HANDLING_DURATION) / Math.pow(10, 6));
-                Log.d("Metrics", "layout_measure_duration: " + mFrameMetrics.getMetric(FrameMetrics.LAYOUT_MEASURE_DURATION) / Math.pow(10, 6));
-                Log.d("Metrics", "swap_buffers_duration: " + mFrameMetrics.getMetric(FrameMetrics.SWAP_BUFFERS_DURATION) / Math.pow(10, 6));
-                Log.d("Metrics", "sync_duration: " + mFrameMetrics.getMetric(FrameMetrics.SYNC_DURATION) / Math.pow(10, 6));
-                Log.d("Metrics", "total_duration: " + mFrameMetrics.getMetric(FrameMetrics.TOTAL_DURATION) / Math.pow(10, 6));
-                Log.d("Metrics", "unknown_delay_duration: " + mFrameMetrics.getMetric(FrameMetrics.UNKNOWN_DELAY_DURATION) / Math.pow(10, 6));
-            }else {
-                Log.e("Metrics","build version_code :" + Build.VERSION.SDK_INT);
-            }
-
-
-        },300);
-    }
 
 
     @Override

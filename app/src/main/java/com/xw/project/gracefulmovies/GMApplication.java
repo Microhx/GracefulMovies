@@ -9,7 +9,6 @@ import com.xw.project.gracefulmovies.rx.RxSchedulers;
 import com.xw.project.gracefulmovies.rx.SimpleConsumer;
 import com.xw.project.gracefulmovies.util.Logy;
 
-import io.github.inflationx.viewpump.ViewPump;
 import io.reactivex.Observable;
 
 /**
@@ -57,9 +56,8 @@ public class GMApplication extends Application {
     }
 
   private void addViewPumpSetting() {
-      ViewPump.init(ViewPump.builder().build());
+     // ViewPump.init(ViewPump.builder().build());
   }
-
 
   public static GMApplication getInstance() {
         return sApplication;

@@ -22,7 +22,6 @@ import com.xw.project.gracefulmovies.rx.SimpleConsumer;
 import com.xw.project.gracefulmovies.ui.activity.base.BaseActivity;
 import com.yanzhenjie.permission.AndPermission;
 
-import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 import io.reactivex.Observable;
 
 /**
@@ -154,8 +153,4 @@ public class SplashActivity extends AppCompatActivity {
         finish();
     }
 
-
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
-    }
 }

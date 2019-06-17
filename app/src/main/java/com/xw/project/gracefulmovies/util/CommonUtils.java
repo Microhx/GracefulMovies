@@ -21,6 +21,11 @@ public class CommonUtils {
     return null != collection && collection.size() >= size;
   }
 
+public static boolean checkCollection(Collection<?> collection) {
+    return null != collection && !collection.isEmpty();
+}
+
+
 
   public static <T> List<T> getSafeArrayList(List<T> list) {
     return null == list ? new ArrayList<>() : list;

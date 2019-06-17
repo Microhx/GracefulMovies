@@ -24,9 +24,9 @@ import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 import java.util.List;
 
 /**
- * 影片列表Fragment
- * <p>
- * Created by woxingxiao on 2017-01-23.
+ *
+ * 电影列表
+ *
  */
 public class MovieListFragment extends BaseFragment<FragmentMovieListBinding> implements
     DiscreteScrollView.ScrollStateChangeListener<BaseViewHolder>,  BaseQuickAdapter.OnItemClickListener {
@@ -101,8 +101,9 @@ public class MovieListFragment extends BaseFragment<FragmentMovieListBinding> im
 
           try {
             mBinding.infiniteViewPager.smoothScrollToPosition(0);
-          } catch (IllegalArgumentException ignored) {
-          }
+          } catch (IllegalArgumentException ignored) {}
+
+
         }
 
         mBinding.infiniteViewPager.setVisibility(View.VISIBLE);
