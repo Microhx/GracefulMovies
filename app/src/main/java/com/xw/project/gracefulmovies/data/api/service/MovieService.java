@@ -6,6 +6,8 @@ import com.xw.project.gracefulmovies.data.db.entity.MovieEntity;
 
 import com.xw.project.gracefulmovies.entity.NewMovieDetailData;
 import com.xw.project.gracefulmovies.entity.NewMovieItemData;
+import com.xw.project.gracefulmovies.entity.NewMovieTypeItem;
+
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -41,6 +43,8 @@ public interface MovieService {
     Observable<ModelBridge<List<NewMovieItemData>>> searchMovieData(@Query("movieName") String movieName,
                                                                     @Query("pageIndex") int pageIndex);
 
+    @GET("/api/movie/queryAllMovieType")
+    Observable<ModelBridge<List<NewMovieTypeItem>>> getMovieTypeItemList();
 
     @GET("/api/movie/queryMoviesByType")
     Observable<ModelBridge<List<NewMovieItemData>>> getMovieByType(@Query("type") String movieType,

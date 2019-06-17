@@ -1,11 +1,14 @@
 package com.xw.project.gracefulmovies.viewmodel
 
-import androidx.lifecycle.MediatorLiveData
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.xw.project.gracefulmovies.entity.BaseSuperData
-import com.xw.project.gracefulmovies.entity.NewMovieItemData
+import androidx.lifecycle.Transformations
+import com.xw.project.gracefulmovies.data.DataResource
+import com.xw.project.gracefulmovies.data.ao.MovieDetail
+import com.xw.project.gracefulmovies.entity.NewMovieTypeItem
 import com.xw.project.gracefulmovies.repository.MovieCategoryRepository
-import com.xw.project.gracefulmovies.util.CommonUtils
+import com.xw.project.gracefulmovies.repository.MovieDetailRepository
+import com.xw.project.gracefulmovies.repository.NewMovieTypeRepository
 import com.xw.project.gracefulmovies.viewmodel.base.BaseViewModel
 
 /**
@@ -19,26 +22,16 @@ import com.xw.project.gracefulmovies.viewmodel.base.BaseViewModel
  *
  * desc :
  */
-class MovieCategoryViewModel : BaseViewModel() {
+class MovieCategoryViewModel  : BaseViewModel() {
 
-    val itemMovieData = MutableLiveData<BaseSuperData<NewMovieItemData>>()
+    // val movieItemTypeList = MutableLiveData<List<NewMovieTypeItem>>()
+    // NewMovieTypeRepository().getMovieTypeList()
 
-    private var mMovieCategoryRepository = MovieCategoryRepository()
-
-    /**
-     * 加载分类电影
-     */
-    fun loadCategroyMovie(movieType:String, currentPage:Int) {
-        val categoryList = mMovieCategoryRepository.getMovieCategoryList(movieType, currentPage)
-        categoryList.observeForever {
-
-            val superData = BaseSuperData<NewMovieItemData>()
-
-            superData.data = it.data
-            superData.index = currentPage
-
-            itemMovieData.postValue(superData)
-        }
+    fun getMovieItemTypeList() : LiveData<DataResource<List<NewMovieTypeItem>>> {
+        return Transformations.switchMap<Boolean,
+                DataResource<List<NewMovieTypeItem>>>(loadLive)
+        { NewMovieTypeRepository().getMovieTypeList() }
     }
+
 
 }

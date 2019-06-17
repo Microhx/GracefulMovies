@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
 import com.xw.project.gracefulmovies.R;
-import com.xw.project.gracefulmovies.ui.fragment.MovieSubCategoryFragment;
+import com.xw.project.gracefulmovies.ui.fragment.MovieCategoryFragment;
 
 /**
  * created by xinghe
@@ -28,9 +28,10 @@ public class EmptyActivity extends FragmentActivity {
 
        getSupportFragmentManager().
                beginTransaction().
-               add(R.id.id_content_layout, new MovieSubCategoryFragment()).
+               add(R.id.id_content_layout, new MovieCategoryFragment()).
                commitAllowingStateLoss();
     }
+
 
 
 }

@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/id_state_empty"
-        android:text="@string/str_state_loading"
+        android:text="@string/str_state_empty"
         android:layout_marginTop="@dimen/dp_4"
         android:layout_height="wrap_content"/>
 

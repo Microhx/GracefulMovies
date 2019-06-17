@@ -9,7 +9,7 @@ import com.xw.project.gracefulmovies.ui.activity.adaper.BaseCommonAdapter
 import com.xw.project.gracefulmovies.ui.activity.base.NewBaseRefreshFragment
 import com.xw.project.gracefulmovies.ui.search.adapter.MovieDataSearchAdapter
 import com.xw.project.gracefulmovies.util.Logy
-import com.xw.project.gracefulmovies.viewmodel.MovieCategoryViewModel
+import com.xw.project.gracefulmovies.viewmodel.MovieSubCategoryViewModel
 
 /**
  * created by xinghe
@@ -24,8 +24,10 @@ import com.xw.project.gracefulmovies.viewmodel.MovieCategoryViewModel
  */
 class MovieSubCategoryFragment : NewBaseRefreshFragment<NewMovieItemData>() {
 
-    private lateinit var mMovieCategoryViewModel : MovieCategoryViewModel
+    private lateinit var mMovieCategoryViewModel : MovieSubCategoryViewModel
     private lateinit var mMovieType:String
+
+    override fun isNotViewPagerItem(): Boolean = false
 
     override fun receiveIntentOrBundles(arguments: Bundle?) {
         mMovieType = arguments!!.getString("movieType")!!
@@ -36,7 +38,7 @@ class MovieSubCategoryFragment : NewBaseRefreshFragment<NewMovieItemData>() {
     }
 
     override fun initOnBindLifeCycle() {
-        mMovieCategoryViewModel = ViewModelProviders.of(this).get(MovieCategoryViewModel::class.java)
+        mMovieCategoryViewModel = ViewModelProviders.of(this).get(MovieSubCategoryViewModel::class.java)
         mMovieCategoryViewModel.itemMovieData.observe(viewLifecycleOwner,
                 Observer<BaseSuperData<NewMovieItemData>> {
 
@@ -48,7 +50,18 @@ class MovieSubCategoryFragment : NewBaseRefreshFragment<NewMovieItemData>() {
     override fun gotoRequest(pageIndex: Int) {
         Logy.d("gotRequest:$pageIndex")
 
-        mMovieCategoryViewModel.loadCategroyMovie(mMovieType,pageIndex)
+        mMovieCategoryViewModel.loadCategoryMovie(mMovieType,pageIndex)
+    }
+
+    companion object {
+        fun getInstance(movieType:Int) : MovieSubCategoryFragment {
+            val bundle = Bundle()
+            bundle.putString("movieType",movieType.toString())
+
+            val fragment = MovieSubCategoryFragment()
+            fragment.arguments = bundle
+            return fragment
+        }
     }
 
 

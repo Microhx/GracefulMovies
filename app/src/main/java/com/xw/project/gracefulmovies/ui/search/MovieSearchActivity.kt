@@ -38,7 +38,7 @@ class MovieSearchActivity : BaseRefreshActivity<NewMovieItemData>(), CustomSearc
   private lateinit var mMovieSearchViewModel: MovieSearchViewModel
   private val mMovieDataSearchAdapter = MovieDataSearchAdapter()
 
-  private var mCurrentPage = START_PAGE;
+  private var mCurrentPage = START_PAGE
   private var mCurrentKeyWords = ""
 
   override fun initializeToolbar() {

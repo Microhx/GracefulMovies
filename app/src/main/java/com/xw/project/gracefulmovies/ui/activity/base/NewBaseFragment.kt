@@ -20,7 +20,7 @@ import androidx.fragment.app.Fragment
  */
 abstract class NewBaseFragment : Fragment() {
 
-    private var isVisibleToUser = isViewPagerItem()
+    private var isVisibleToUser = isNotViewPagerItem()
 
     private var isViewPrepared = false
 
@@ -65,7 +65,7 @@ abstract class NewBaseFragment : Fragment() {
 
     open fun onLazyLoadData() {}
 
-    protected fun isViewPagerItem(): Boolean = false
+    open fun isNotViewPagerItem(): Boolean = true
 
     override fun onDestroy() {
         isDataHasLoaded = false
