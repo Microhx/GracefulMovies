@@ -3,10 +3,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="model"
-            type="com.xw.project.gracefulmovies.data.ao.MovieStills.Stills"/>
+            type="com.xing.project.movie.data.ao.MovieStills.Stills"/>
     </data>
 
     <ImageView

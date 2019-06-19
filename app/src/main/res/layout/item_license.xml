@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="com.xw.project.gracefulmovies.data.ao.OpenProject"/>
+            type="com.xing.project.movie.data.ao.OpenProject"/>
     </data>
 
     <LinearLayout
@@ -25,7 +25,7 @@
             android:textSize="@dimen/sp_16"
             tools:text="@string/app_name"/>
 
-        <com.xw.project.gracefulmovies.ui.widget.QuoteTextView
+        <com.xing.project.movie.ui.widget.QuoteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_8"

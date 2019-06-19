@@ -102,7 +102,7 @@
                     app:layout_constraintTop_toTopOf="@+id/rating_bar"
                     tools:text="7.8"/>
 
-                <com.xw.project.gracefulmovies.ui.widget.TagGroup
+                <com.xing.project.movie.ui.widget.TagGroup
                     android:id="@+id/type_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
                     app:layout_constraintStart_toStartOf="@+id/rating_bar"
                     app:layout_constraintTop_toBottomOf="@+id/rating_bar"/>
 
-                <com.xw.project.gracefulmovies.ui.widget.TagGroup
+                <com.xing.project.movie.ui.widget.TagGroup
                     android:id="@+id/format_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -150,7 +150,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cover_iv"/>
 
-                <com.xw.project.gracefulmovies.ui.widget.QuoteTextView
+                <com.xing.project.movie.ui.widget.QuoteTextView
                     android:id="@+id/story_brief_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -174,7 +174,7 @@
                     android:layout_marginStart="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_16"/>
 
-                <com.xw.project.gracefulmovies.view.MovieDataView
+                <com.xing.project.movie.view.MovieDataView
                     android:id="@+id/linear_movie_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

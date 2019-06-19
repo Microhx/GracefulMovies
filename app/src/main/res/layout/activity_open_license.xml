@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.xw.project.gracefulmovies.ui.activity.OpenLicenseActivity">
+        tools:context="com.xing.project.movie.ui.activity.OpenLicenseActivity">
 
         <include layout="@layout/layout_toolbar"/>
 
@@ -19,6 +19,8 @@
             android:layout_height="wrap_content"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
     </LinearLayout>
 
 </layout>

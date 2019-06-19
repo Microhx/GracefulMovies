@@ -5,11 +5,11 @@
 
     <data>
 
-        <import type="com.xw.project.gracefulmovies.ui.adapter.ActorsAdapter"/>
+        <import type="com.xing.project.movie.ui.adapter.ActorsAdapter"/>
 
         <variable
             name="model"
-            type="com.xw.project.gracefulmovies.data.ao.Actor"/>
+            type="com.xing.project.movie.data.ao.Actor"/>
     </data>
 
     <LinearLayout

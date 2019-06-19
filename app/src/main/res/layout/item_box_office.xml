@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.xw.project.gracefulmovies.data.db.entity.BoxOfficeEntity"/>
+            type="com.xing.project.movie.data.db.entity.BoxOfficeEntity"/>
     </data>
 
     <androidx.cardview.widget.CardView

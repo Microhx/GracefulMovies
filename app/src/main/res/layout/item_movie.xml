@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.xw.project.gracefulmovies.data.db.entity.MovieEntity"/>
+            type="com.xing.project.movie.data.db.entity.MovieEntity"/>
     </data>
 
     <androidx.cardview.widget.CardView
@@ -46,7 +46,7 @@
                 tools:alpha="1"
                 tools:text="Hello World!"/>
 
-            <com.xw.project.gracefulmovies.ui.widget.TagGroup
+            <com.xing.project.movie.ui.widget.TagGroup
                 android:id="@+id/type_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

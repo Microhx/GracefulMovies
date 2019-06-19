@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#000">
 
-    <com.xw.project.gracefulmovies.player.MovieNormalPlayer
+    <com.xing.project.movie.player.MovieNormalPlayer
         android:id="@+id/video_player"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

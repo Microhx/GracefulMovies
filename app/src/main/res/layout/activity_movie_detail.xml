@@ -5,10 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import type="android.view.View"/>
 
-        <import type="com.xw.project.gracefulmovies.ui.activity.MovieDetailActivity"/>
+        <import type="com.xing.project.movie.ui.activity.MovieDetailActivity"/>
 
         <variable
             name="statusBarHeight"
@@ -16,11 +15,11 @@
 
         <variable
             name="info"
-            type="com.xw.project.gracefulmovies.data.ao.MovieDetail.MovieDetailInfo"/>
+            type="com.xing.project.movie.data.ao.MovieDetail"/>
 
         <variable
             name="boxOffice"
-            type="com.xw.project.gracefulmovies.data.ao.MovieDetail.BoxOfficeInDetail"/>
+            type="com.xing.project.movie.data.ao.MovieDetail.BoxOfficeInDetail"/>
     </data>
 
     <FrameLayout
@@ -91,7 +90,7 @@
                     android:id="@+id/name_en_tv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@{info.nameEn}"
+                    android:text="@{info.basic.nameEn}"
                     android:textColor="#bbffffff"
                     android:textSize="@dimen/sp_12"
                     app:autoSizeTextType="uniform"
@@ -110,7 +109,7 @@
                     app:srb_drawBorderEnabled="false"
                     app:srb_fillColor="@color/color_blue"
                     app:srb_isIndicator="true"
-                    app:srb_rating="@{info.overallRating}"
+                    app:srb_rating="@{info.basic.overallRating}"
                     app:srb_starBackgroundColor="@android:color/white"
                     app:srb_starSize="15dp"
                     app:srb_starsSeparation="@dimen/dp_2"
@@ -122,15 +121,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_8"
                     android:layout_marginStart="@dimen/dp_8"
-                    android:text="@{String.valueOf(info.overallRating)}"
+                    android:text="@{String.valueOf(info.basic.overallRating)}"
                     android:textColor="@android:color/white"
-                    android:visibility="@{info.overallRating > 0 ? View.VISIBLE : View.INVISIBLE}"
+                    android:visibility="@{info.basic.overallRating > 0 ? View.VISIBLE : View.INVISIBLE}"
                     app:layout_constraintBottom_toBottomOf="@+id/rating_bar"
                     app:layout_constraintStart_toEndOf="@+id/rating_bar"
                     app:layout_constraintTop_toTopOf="@+id/rating_bar"
                     tools:text="7.8"/>
 
-                <com.xw.project.gracefulmovies.ui.widget.TagGroup
+                <com.xing.project.movie.ui.widget.TagGroup
                     android:id="@+id/type_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -139,7 +138,7 @@
                     app:layout_constraintStart_toStartOf="@+id/rating_bar"
                     app:layout_constraintTop_toBottomOf="@+id/rating_bar"/>
 
-                <com.xw.project.gracefulmovies.ui.widget.TagGroup
+                <com.xing.project.movie.ui.widget.TagGroup
                     android:id="@+id/format_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -153,7 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
-                    android:text='@{info.mins}'
+                    android:text='@{info.basic.mins}'
                     android:textColor="#bbffffff"
                     app:layout_constraintStart_toStartOf="@+id/format_container"
                     app:layout_constraintTop_toBottomOf="@+id/format_container"
@@ -164,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
-                    android:text="@{MovieDetailActivity.convert(info.releaseDate)}"
+                    android:text="@{MovieDetailActivity.convert(info.basic.releaseDate)}"
                     android:textColor="#bbffffff"
                     app:layout_constraintStart_toStartOf="@+id/duration_tv"
                     app:layout_constraintTop_toBottomOf="@+id/duration_tv"
@@ -182,7 +181,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cover_iv"/>
 
-                <com.xw.project.gracefulmovies.ui.widget.QuoteTextView
+                <com.xing.project.movie.ui.widget.QuoteTextView
                     android:id="@+id/story_brief_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -190,7 +189,7 @@
                     android:layout_marginRight="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_8"
                     android:padding="@dimen/dp_8"
-                    android:text="@{info.story}"
+                    android:text="@{info.basic.story}"
                     android:textColor="?android:textColorPrimary"
                     android:textSize="@dimen/sp_12"
                     app:layout_constraintStart_toStartOf="parent"
@@ -335,7 +334,7 @@
                         app:layout_constraintBaseline_toBaselineOf="@+id/text3"
                         app:layout_constraintEnd_toEndOf="parent"/>
 
-                    <com.xw.project.gracefulmovies.ui.widget.QuoteTextView
+                    <com.xing.project.movie.ui.widget.QuoteTextView
                         android:id="@+id/box_office_bg"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -493,7 +492,7 @@
                 android:layout_marginStart="@dimen/dp_64"
                 android:layout_marginTop="@dimen/dp_4"
                 android:includeFontPadding="false"
-                android:text="@{info.nameEn}"
+                android:text="@{info.basic.nameEn}"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/sp_12"
                 tools:text="@string/app_name"/>

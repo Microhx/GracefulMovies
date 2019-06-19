@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.xw.project.gracefulmovies.ui.widget.UnScrollableViewPager
+    <com.xing.project.movie.ui.widget.UnScrollableViewPager
         android:id="@+id/id_view_pager"
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
 
     <include layout="@layout/base_line_view"/>
 
-    <com.xw.project.gracefulmovies.view.BaseRadioLayout
+    <com.xing.project.movie.view.BaseRadioLayout
         android:id="@+id/radio_layout"
         android:layout_width="match_parent"
         android:layout_height="56dp"/>

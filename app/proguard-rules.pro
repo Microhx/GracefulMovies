@@ -79,8 +79,8 @@
 -dontwarn rx.internal.util.**
 
 # Model
--keep class com.xw.project.gracefulmovies.data.ao.** { *; }
--keep class com.xw.project.gracefulmovies.data.db.entity.** { *; }
+-keep class com.xing.project.movie.data.ao.** { *; }
+-keep class com.xing.project.movie.data.db.entity.** { *; }
 
 # 播放器
 #-keep class tv.danmaku.ijk.** { *; }

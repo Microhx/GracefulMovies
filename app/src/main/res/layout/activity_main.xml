@@ -16,9 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="false"
-            tools:context=".ui.activity.MainActivity">
+            tools:context="com.xing.project.movie.ui.activity.MainActivity">
 
-            <com.xw.project.gracefulmovies.ui.widget.UnScrollableViewPager
+            <com.xing.project.movie.ui.widget.UnScrollableViewPager
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>

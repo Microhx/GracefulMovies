@@ -37,7 +37,7 @@
                 app:autoSizeTextType="uniform"
                 tools:alpha="1"/>
 
-            <com.xw.project.gracefulmovies.ui.widget.TagGroup
+            <com.xing.project.movie.ui.widget.TagGroup
                 android:id="@+id/type_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
