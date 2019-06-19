@@ -15,6 +15,10 @@
     <color name="color_white">#FFF</color>
 
     <color name="res_line_color">#e2e2e2</color>
+    <color name="white">#FFF</color>
+
+    <color name="red_standard">#ff5954</color>
+    <color name="item_press_color">#f2f3f4</color>
 
 
 

@@ -32,7 +32,7 @@ abstract class NewBaseRefreshFragment<T>: NewBaseFragment(), SwipeRefreshLayout.
     private lateinit var hxStateView: HxStateView
     private lateinit var mRecyclerView:RecyclerView
     private lateinit var mRefreshLayout: SwipeRefreshLayout
-    private lateinit var recyclerViewAdapter : BaseCommonAdapter<T>
+    protected lateinit var recyclerViewAdapter : BaseCommonAdapter<T>
 
     private var mCurrentPage = FIRST_PAGE
 

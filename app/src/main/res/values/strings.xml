@@ -61,5 +61,9 @@
     <string name="base_str_category">分类</string>
     <string name="base_str_trend">趋势</string>
     <string name="base_str_me">我的</string>
+    <string name="str_movie_history">浏览历史</string>
+    <string name="str_check_update">检查更新</string>
+    <string name="str_about">关于</string>
+    <string name="str_login">登录</string>
 
 </resources>

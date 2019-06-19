@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.xing.project.movie.entity.BaseSuperData
 import com.xing.project.movie.entity.NewMovieItemData
+import com.xing.project.movie.ui.activity.NewMovieDetailActivity
 import com.xing.project.movie.ui.activity.adaper.BaseCommonAdapter
 import com.xing.project.movie.ui.activity.base.NewBaseRefreshFragment
 import com.xing.project.movie.ui.search.adapter.MovieDataSearchAdapter
@@ -52,6 +53,14 @@ class MovieSubCategoryFragment : NewBaseRefreshFragment<NewMovieItemData>() {
 
         mMovieCategoryViewModel.loadCategoryMovie(mMovieType,pageIndex)
     }
+
+    override fun onItemChildClick(position: Int) {
+        val item = recyclerViewAdapter.getItem(position)
+        item?.apply {
+            NewMovieDetailActivity.start(requireContext(), this.movieId)
+        }
+    }
+
 
     companion object {
         fun getInstance(movieType:Int) : MovieSubCategoryFragment {

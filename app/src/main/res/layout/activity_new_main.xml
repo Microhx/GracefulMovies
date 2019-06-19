@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
 
-    <include layout="@layout/base_line_view"/>
+    <!--<include layout="@layout/base_line_view"/>-->
 
     <com.xing.project.movie.view.BaseRadioLayout
         android:id="@+id/radio_layout"
